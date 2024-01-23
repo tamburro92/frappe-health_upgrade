@@ -156,7 +156,7 @@ doctype_calendar_js = {"Patient Appointment" : "public/js/patient_appointment_ca
 # Override standard doctype classes
 
 override_doctype_class = {
-    "Patient Appointment" : "health_upgrade.health_upgrade.overrides.patient_appointment.PatientAppointmenthealth_upgrade",
+    "Patient Appointment" : "health_upgrade.health_upgrade.overrides.patient_appointment.PatientAppointmentHC",
 	"Sales Invoice": "health_upgrade.health_upgrade.overrides.sales_invoice.SalesInvoiceHC",
     "Company": "health_upgrade.health_upgrade.overrides.company.CompanyHC",
     "Patient": "health_upgrade.health_upgrade.overrides.patient.PatientHC"
