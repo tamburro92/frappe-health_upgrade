@@ -12,8 +12,12 @@ frappe.ui.form.on("Patient Appointment", {
             return
 
 		if (!frm.doc.ref_sales_invoice) {
-			frm.add_custom_button(__("Generate Invoice"), function() {
-				generate_invoice(frm);
+				frappe.db.get_single_value("HC Settings", "check_patient_billing_in_appointment").then((value) => {
+					if (value===1) {
+						frm.add_custom_button(__("Generate Invoice"), function() {
+							generate_invoice(frm);
+						});
+					}
 			});
 		}
 
@@ -101,14 +105,8 @@ frappe.ui.form.on("Patient Appointment", {
             frappe.db.get_value("Healthcare Practitioner", frm.doc.practitioner, ["hc_company"], function(r) {
                 if (r.hc_company){
                     frm.set_value("company", r.hc_company); 
-                } else {
-                    frm.set_value("company", ''); 
                 }
-
-
             })        
-        } else {
-            frm.set_value("company", ''); 
         }
     },
 	

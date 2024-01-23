@@ -12,13 +12,13 @@
  ],
  "fields": [
   {
-   "default": "1",
+   "default": "0",
    "fieldname": "check_patient_billing_in_appointment",
    "fieldtype": "Check",
    "label": "Check patient billing in appointment"
   },
   {
-   "default": "1",
+   "default": "0",
    "fieldname": "button_create_invoice_in_appointment",
    "fieldtype": "Check",
    "label": "Button Create Invoice in appointment"
