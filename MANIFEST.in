@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include health_upgrade *.css
+recursive-include health_upgrade *.csv
+recursive-include health_upgrade *.html
+recursive-include health_upgrade *.ico
+recursive-include health_upgrade *.js
+recursive-include health_upgrade *.json
+recursive-include health_upgrade *.md
+recursive-include health_upgrade *.png
+recursive-include health_upgrade *.py
+recursive-include health_upgrade *.svg
+recursive-include health_upgrade *.txt
+recursive-exclude health_upgrade *.pyc

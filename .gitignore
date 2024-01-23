@@ -1,0 +1,11 @@
+.DS_Store
+*.pyc
+*.egg-info
+*.swp
+*.scrape
+tags
+health_upgrade/docs/current
+node_modules/
+health_upgrade/public/dist/
+_scraping/
+porting/
