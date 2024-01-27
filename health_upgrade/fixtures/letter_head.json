@@ -14,11 +14,11 @@
   "image": null,
   "image_height": 0.0,
   "image_width": 0.0,
-  "is_default": 0,
+  "is_default": 1,
   "letter_head_name": "Template Medico",
   "modified": "2024-01-20 17:00:45.994839",
   "name": "Template Medico",
-  "source": "HTML"
+  "source": "Image"
  },
  {
   "align": "Left",
@@ -39,6 +39,6 @@
   "letter_head_name": "Template Azienda",
   "modified": "2024-01-20 17:04:15.642135",
   "name": "Template Azienda",
-  "source": "HTML"
+  "source": "Image"
  }
 ]

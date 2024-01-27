@@ -16,6 +16,9 @@ from frappe.utils import flt, format_date, get_link_to_form, get_time, getdate
 from healthcare.healthcare.doctype.patient_appointment.patient_appointment import PatientAppointment, get_income_account, check_employee_wise_availability, check_fee_validity, get_fee_validity, get_appointment_item, get_receivable_account
 from erpnext.controllers.selling_controller import get_taxes_and_charges
 from frappe.contacts.address_and_contact import (load_address_and_contact)
+from healthcare.healthcare.utils import throw_config_appointment_type_charge, throw_config_practitioner_charge, throw_config_service_item, get_appointment_billing_item_and_rate, get_healthcare_service_item,  get_appointment_type_billing_details, get_practitioner_billing_details
+from erpnext.controllers.accounts_controller import get_default_taxes_and_charges
+
 class PatientAppointmentHC(PatientAppointment):
 	pass
 
@@ -232,18 +235,20 @@ def create_sales_invoice(appointment_doc, discount_percentage=0, discount_amount
 	# Set Items
 	item = sales_invoice.append("items", {})
 	item = get_appointment_item(appointment_doc, item)
-	item_price = frappe.get_doc("Item Price", {"item_code": appointment_doc.hc_procedure})
-	paid_amount = flt(item_price.price_list_rate)
+	#item_price = frappe.get_doc("Item Price", {"item_code": appointment_doc.hc_procedure})
+	paid_amount = flt(appointment_doc.paid_amount)
 
 	# Set taxes
-	tax_bollo = frappe.get_value("Company", appointment_doc.company, "hc_default_bollo_template")
+	#tax_bollo = frappe.get_value("Company", appointment_doc.company, "hc_default_bollo_template")
 	# tax_zero_vat = frappe.get_value("Company", appointment_doc.company, "hc_default_zero_vat_template")
 	mode_payment = frappe.get_value("Company", appointment_doc.company, "hc_default_mode_of_payment")
 	sales_invoice.hc_mode_of_payment = mode_payment
 	sales_invoice.naming_series = frappe.get_value("Company", appointment_doc.company, "hc_naming_series")
+	
+	#taxesBollo = get_taxes_and_charges("Sales Taxes and Charges Template", tax_bollo)
+	taxDefault = get_default_taxes_and_charges("Sales Taxes and Charges Template", company= appointment_doc.company)
 
-	taxes = get_taxes_and_charges("Sales Taxes and Charges Template", tax_bollo)
-	for tax in taxes:
+	for tax in taxDefault['taxes']:
 		sales_invoice.append("taxes", tax)
 
 	# Set payment mode
@@ -281,21 +286,21 @@ def create_sales_invoice(appointment_doc, discount_percentage=0, discount_amount
 	)
 	appointment_doc.notify_update()
 
-def get_appointment_item(appointment_doc, item):
-	details = frappe.get_doc("Item", appointment_doc.hc_procedure)
-	item_price = frappe.get_doc("Item Price", {"item_code": appointment_doc.hc_procedure})
-	paid_amount = flt(item_price.price_list_rate)
 
-	item.item_code = details.item_code
-	item.description = details.description
+def get_appointment_item(appointment_doc, item):
+	details = get_appointment_billing_item_and_rate(appointment_doc)
+	charge = appointment_doc.paid_amount or details.get("practitioner_charge")
+	item.item_code = details.get("service_item")
+	item.description = _("Consulting Charges: {0}").format(appointment_doc.practitioner)
 	item.income_account = get_income_account(appointment_doc.practitioner, appointment_doc.company)
 	item.cost_center = frappe.get_cached_value("Company", appointment_doc.company, "cost_center")
-	item.rate = paid_amount
-	item.amount = paid_amount
+	item.rate = charge
+	item.amount = charge
 	item.qty = 1
 	item.reference_dt = "Patient Appointment"
 	item.reference_dn = appointment_doc.name
 	return item
+
 
 @frappe.whitelist()
 def check_patient_details(patient):
@@ -373,3 +378,71 @@ def create_iniziali(input, skip_first=False):
 		pop_elm = input_arr.pop(1)
 
 	return pop_elm + ''.join([parola[0].upper() + '.' for parola in input_arr])
+
+
+def get_appointment_billing_item_and_rate(doc):
+	if isinstance(doc, str):
+		doc = json.loads(doc)
+		doc = frappe.get_doc(doc)
+
+	service_item = None
+	practitioner_charge = None
+	department = doc.medical_department if doc.doctype == "Patient Encounter" else doc.department
+	service_unit = doc.service_unit if doc.doctype == "Patient Appointment" else None
+
+	is_inpatient = doc.inpatient_record
+
+	if doc.get("practitioner"):
+		service_item, practitioner_charge = get_practitioner_billing_details(
+			doc.practitioner, is_inpatient
+		)
+
+	if not service_item and doc.get("procedure_template"):
+		service_item, appointment_charge = get_procedure_template_billing_details(doc.procedure_template)
+		if not practitioner_charge:
+			practitioner_charge = appointment_charge
+
+	if not service_item and doc.get("appointment_type"):
+		service_item, appointment_charge = get_appointment_type_billing_details(
+			doc.appointment_type, department if department else service_unit, is_inpatient
+		)
+		if not practitioner_charge:
+			practitioner_charge = appointment_charge
+
+	if not service_item:
+		service_item = get_healthcare_service_item(is_inpatient)
+
+	if not service_item:
+		throw_config_service_item(is_inpatient)
+
+	if not practitioner_charge and doc.get("practitioner"):
+		throw_config_practitioner_charge(is_inpatient, doc.practitioner)
+
+	if not practitioner_charge and not doc.get("practitioner"):
+		throw_config_appointment_type_charge(is_inpatient, doc.appointment_type)
+
+	return {"service_item": service_item, "practitioner_charge": practitioner_charge}
+
+
+def get_procedure_template_billing_details(procedure):
+	item_list = None
+	item_list = frappe.db.get_value(
+			"Clinical Procedure Template",
+			filters={"name": procedure},
+			fieldname=[
+				"item",
+				"item_code",
+				"rate"
+			],
+			as_dict=1,
+		)
+	service_item = None
+	practitioner_charge = None
+
+	if item_list:
+		service_item = item_list.get("item")
+		practitioner_charge = item_list.get("rate")
+
+	return service_item, practitioner_charge
+
+

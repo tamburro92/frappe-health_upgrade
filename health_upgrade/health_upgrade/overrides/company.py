@@ -23,7 +23,7 @@ class CompanyHC(Company):
 		# Don't Create default tax template, instead use custom
 		# for bollo/non_bollo settings came from "Company HC Settings"
 		# for Italy Tax, should be defined a "Tax Rule" binded to Customer
-		#Company.create_default_tax_template(self)        
+		super().create_default_tax_template()        
 		from_detailed_data(self.name, copy.deepcopy(vat_bollo_nobollo))
 		update_regional_tax_settings(self.country, self.name)
 
