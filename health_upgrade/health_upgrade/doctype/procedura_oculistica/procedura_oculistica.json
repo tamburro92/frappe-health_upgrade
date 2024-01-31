@@ -1,0 +1,347 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-01-31 12:15:40.115602",
+ "default_view": "List",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "title",
+  "appointment",
+  "appointment_type",
+  "patient",
+  "patient_name",
+  "patient_sex",
+  "patient_age",
+  "inpatient_record",
+  "inpatient_status",
+  "column_break_6",
+  "company",
+  "encounter_date",
+  "encounter_time",
+  "practitioner",
+  "practitioner_name",
+  "medical_department",
+  "google_meet_link",
+  "invoiced",
+  "interventi_section",
+  "interventi",
+  "amnesi_generale_section",
+  "amnesi_generale",
+  "amnesi_oculare_section",
+  "amnesi_oculare",
+  "amnesi_ortottica_section",
+  "amnesi_ortottica",
+  "esame_obiettivo_section",
+  "esame_obiettivo",
+  "referti_esami_section",
+  "referti_esami",
+  "diagnosi_section",
+  "diagnosi",
+  "symptoms_in_print",
+  "diagnosis_in_print",
+  "section_break_33",
+  "encounter_comment",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "HLC-PR-OC-.YYYY.-",
+   "set_only_once": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "appointment",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Appointment",
+   "options": "Patient Appointment",
+   "search_index": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "appointment_type",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Appointment Type",
+   "no_copy": 1,
+   "options": "Appointment Type",
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "patient_sex",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender",
+   "read_only": 1
+  },
+  {
+   "fieldname": "patient_age",
+   "fieldtype": "Data",
+   "label": "Age",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "inpatient_record",
+   "fieldtype": "Link",
+   "label": "Inpatient Record",
+   "options": "Inpatient Record",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "inpatient_status",
+   "fieldtype": "Data",
+   "label": "Inpatient Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "default": "Today",
+   "fieldname": "encounter_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Encounter Date",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "encounter_time",
+   "fieldtype": "Time",
+   "label": "Encounter Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Healthcare Practitioner",
+   "options": "Healthcare Practitioner",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "practitioner.practitioner_name",
+   "fieldname": "practitioner_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Practitioner Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "practitioner.department",
+   "fieldname": "medical_department",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Medical Department",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "appointment.google_meet_link",
+   "fieldname": "google_meet_link",
+   "fieldtype": "Data",
+   "label": "Google Meet Link",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "invoiced",
+   "fieldtype": "Check",
+   "label": "Invoiced",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "interventi_section",
+   "fieldtype": "Section Break",
+   "label": "Interventi"
+  },
+  {
+   "fieldname": "interventi",
+   "fieldtype": "Small Text",
+   "label": "Interventi"
+  },
+  {
+   "fieldname": "amnesi_generale_section",
+   "fieldtype": "Section Break",
+   "label": "Amnesi Generale"
+  },
+  {
+   "fieldname": "amnesi_generale",
+   "fieldtype": "Small Text",
+   "label": "Amnesi Generale"
+  },
+  {
+   "fieldname": "amnesi_oculare_section",
+   "fieldtype": "Section Break",
+   "label": "Amnesi Oculare"
+  },
+  {
+   "fieldname": "amnesi_oculare",
+   "fieldtype": "Small Text",
+   "label": "Amnesi Oculare"
+  },
+  {
+   "fieldname": "amnesi_ortottica_section",
+   "fieldtype": "Section Break",
+   "label": "Amnesi Ortottica"
+  },
+  {
+   "fieldname": "amnesi_ortottica",
+   "fieldtype": "Small Text",
+   "label": "Amnesi Ortottica"
+  },
+  {
+   "fieldname": "esame_obiettivo_section",
+   "fieldtype": "Section Break",
+   "label": "Esame Obiettivo"
+  },
+  {
+   "fieldname": "esame_obiettivo",
+   "fieldtype": "Small Text",
+   "label": "Esame Obiettivo"
+  },
+  {
+   "fieldname": "referti_esami_section",
+   "fieldtype": "Section Break",
+   "label": "Referti Esami"
+  },
+  {
+   "fieldname": "referti_esami",
+   "fieldtype": "Small Text",
+   "label": "Referti Esami"
+  },
+  {
+   "fieldname": "diagnosi_section",
+   "fieldtype": "Section Break",
+   "label": "Diagnosi"
+  },
+  {
+   "fieldname": "diagnosi",
+   "fieldtype": "Small Text",
+   "label": "Diagnosi"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.symptoms != ''",
+   "fieldname": "symptoms_in_print",
+   "fieldtype": "Check",
+   "label": "In print",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "default": "1",
+   "depends_on": "eval: doc.diagnosis != ''",
+   "fieldname": "diagnosis_in_print",
+   "fieldtype": "Check",
+   "label": "In print",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "section_break_33",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "encounter_comment",
+   "fieldtype": "Small Text",
+   "ignore_xss_filter": 1,
+   "label": "Review Details",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Procedura Oculistica",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-31 12:15:40.115602",
+ "modified_by": "Administrator",
+ "module": "Health Upgrade",
+ "name": "Procedura Oculistica",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Physician",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Healthcare",
+ "search_fields": "patient, practitioner, medical_department, encounter_date, encounter_time",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1,
+ "track_seen": 1
+}

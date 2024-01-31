@@ -1,0 +1,367 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-01-31 12:32:45.534588",
+ "default_view": "List",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "title",
+  "appointment",
+  "appointment_type",
+  "patient",
+  "patient_name",
+  "patient_sex",
+  "patient_age",
+  "inpatient_record",
+  "inpatient_status",
+  "column_break_6",
+  "company",
+  "encounter_date",
+  "encounter_time",
+  "practitioner",
+  "practitioner_name",
+  "medical_department",
+  "google_meet_link",
+  "invoiced",
+  "per_lontano",
+  "sf_d_l",
+  "column_break_rand4",
+  "cil_d_l",
+  "column_break_h0l2e",
+  "asse_d_l",
+  "column_break_dey9z",
+  "sf_s_l",
+  "column_break_ylivl",
+  "cil_s_l",
+  "column_break_9bmrd",
+  "asse_s_l",
+  "per_vicino",
+  "sf_d_v",
+  "column_break_randv",
+  "cil_d_v",
+  "column_break_h0l2v",
+  "asse_d_v",
+  "column_break_dey9v",
+  "sf_s_v",
+  "column_break_ylivv",
+  "cil_s_v",
+  "column_break_9bmrv",
+  "asse_s_v",
+  "section_break_33",
+  "encounter_comment",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "HLC-PR-OC-.YYYY.-",
+   "set_only_once": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Title",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "appointment",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Appointment",
+   "options": "Patient Appointment",
+   "search_index": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "appointment_type",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Appointment Type",
+   "no_copy": 1,
+   "options": "Appointment Type",
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "patient_sex",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender",
+   "read_only": 1
+  },
+  {
+   "fieldname": "patient_age",
+   "fieldtype": "Data",
+   "label": "Age",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "inpatient_record",
+   "fieldtype": "Link",
+   "label": "Inpatient Record",
+   "options": "Inpatient Record",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "inpatient_status",
+   "fieldtype": "Data",
+   "label": "Inpatient Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "default": "Today",
+   "fieldname": "encounter_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Encounter Date",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "encounter_time",
+   "fieldtype": "Time",
+   "label": "Encounter Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Healthcare Practitioner",
+   "options": "Healthcare Practitioner",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "practitioner.practitioner_name",
+   "fieldname": "practitioner_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Practitioner Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "practitioner.department",
+   "fieldname": "medical_department",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Medical Department",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "appointment.google_meet_link",
+   "fieldname": "google_meet_link",
+   "fieldtype": "Data",
+   "label": "Google Meet Link",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "invoiced",
+   "fieldtype": "Check",
+   "label": "Invoiced",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sf_d_l",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "column_break_rand4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cil_d_l",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "column_break_h0l2e",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "asse_d_l",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "column_break_dey9z",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sf_s_l",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "column_break_ylivl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cil_s_l",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "column_break_9bmrd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "asse_s_l",
+   "fieldtype": "Data"
+  },
+  
+
+  {
+    "fieldname": "sf_d_v",
+    "fieldtype": "Data"
+   },
+   {
+    "fieldname": "column_break_randv",
+    "fieldtype": "Column Break"
+   },
+   {
+    "fieldname": "cil_d_v",
+    "fieldtype": "Data"
+   },
+   {
+    "fieldname": "column_break_h0l2v",
+    "fieldtype": "Column Break"
+   },
+   {
+    "fieldname": "asse_d_v",
+    "fieldtype": "Data"
+   },
+   {
+    "fieldname": "column_break_dey9v",
+    "fieldtype": "Column Break"
+   },
+   {
+    "fieldname": "sf_s_v",
+    "fieldtype": "Data"
+   },
+   {
+    "fieldname": "column_break_ylivv",
+    "fieldtype": "Column Break"
+   },
+   {
+    "fieldname": "cil_s_v",
+    "fieldtype": "Data"
+   },
+   {
+    "fieldname": "column_break_9bmrv",
+    "fieldtype": "Column Break"
+   },
+   {
+    "fieldname": "asse_s_v",
+    "fieldtype": "Data"
+   },
+
+
+  {
+   "fieldname": "section_break_33",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "encounter_comment",
+   "fieldtype": "Small Text",
+   "ignore_xss_filter": 1,
+   "label": "Review Details",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Prescrizioni Lenti",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "per_lontano",
+   "fieldtype": "Section Break",
+   "label": "Per Lontano"
+  },
+  {
+    "fieldname": "per_vicino",
+    "fieldtype": "Section Break",
+    "label": "Per Vicino"
+   }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-31 14:10:15.085619",
+ "modified_by": "Administrator",
+ "module": "Health Upgrade",
+ "name": "Prescrizioni Lenti",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Physician",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Healthcare",
+ "search_fields": "patient, practitioner, medical_department, encounter_date, encounter_time",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1,
+ "track_seen": 1
+}
