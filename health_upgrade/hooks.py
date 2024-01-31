@@ -45,7 +45,7 @@ fixtures = [{
       },
       {
           "dt": "Print Format",
-          "filters": [["name", "in", [ "Template Fattura Medico", "Template Fattura Azienda"]]]
+          "filters": [["name", "in", [ "Template Fattura Medico", "Template Fattura Azienda", "Template Prescrizione Lenti"]]]
       },
       {"dt": "Healthcare Settings"},
       {"dt": "Print Settings"},

@@ -53,8 +53,20 @@
   "cil_s_v",
   "column_break_9bmrv",
   "asse_s_v",
+  "section_break_xsevu",
+  "prisma_d",
+  "column_break_izjso",
+  "base_d",
+  "column_break_fy77r",
+  "prisma_s",
+  "column_break_puln8",
+  "base_s",
+  "section_break_xkl0d",
+  "distanza_centro_ottici_mm",
+  "column_break_hjotp",
+  "distanza_della_cornea_mm",
   "section_break_33",
-  "encounter_comment",
+  "note",
   "amended_from"
  ],
  "fields": [
@@ -208,7 +220,8 @@
   },
   {
    "fieldname": "sf_d_l",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Sf (D)"
   },
   {
    "fieldname": "column_break_rand4",
@@ -216,7 +229,8 @@
   },
   {
    "fieldname": "cil_d_l",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Cil (D)"
   },
   {
    "fieldname": "column_break_h0l2e",
@@ -224,7 +238,8 @@
   },
   {
    "fieldname": "asse_d_l",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Asse (D)"
   },
   {
    "fieldname": "column_break_dey9z",
@@ -232,7 +247,8 @@
   },
   {
    "fieldname": "sf_s_l",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Sf (S)"
   },
   {
    "fieldname": "column_break_ylivl",
@@ -240,7 +256,8 @@
   },
   {
    "fieldname": "cil_s_l",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Cil (S)"
   },
   {
    "fieldname": "column_break_9bmrd",
@@ -248,66 +265,62 @@
   },
   {
    "fieldname": "asse_s_l",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Asse (S)"
   },
-  
-
   {
-    "fieldname": "sf_d_v",
-    "fieldtype": "Data"
-   },
-   {
-    "fieldname": "column_break_randv",
-    "fieldtype": "Column Break"
-   },
-   {
-    "fieldname": "cil_d_v",
-    "fieldtype": "Data"
-   },
-   {
-    "fieldname": "column_break_h0l2v",
-    "fieldtype": "Column Break"
-   },
-   {
-    "fieldname": "asse_d_v",
-    "fieldtype": "Data"
-   },
-   {
-    "fieldname": "column_break_dey9v",
-    "fieldtype": "Column Break"
-   },
-   {
-    "fieldname": "sf_s_v",
-    "fieldtype": "Data"
-   },
-   {
-    "fieldname": "column_break_ylivv",
-    "fieldtype": "Column Break"
-   },
-   {
-    "fieldname": "cil_s_v",
-    "fieldtype": "Data"
-   },
-   {
-    "fieldname": "column_break_9bmrv",
-    "fieldtype": "Column Break"
-   },
-   {
-    "fieldname": "asse_s_v",
-    "fieldtype": "Data"
-   },
-
-
+   "fieldname": "sf_d_v",
+   "fieldtype": "Data",
+   "label": "Sf (D)"
+  },
+  {
+   "fieldname": "column_break_randv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cil_d_v",
+   "fieldtype": "Data",
+   "label": "Cil (D)"
+  },
+  {
+   "fieldname": "column_break_h0l2v",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "asse_d_v",
+   "fieldtype": "Data",
+   "label": "Asse (D)"
+  },
+  {
+   "fieldname": "column_break_dey9v",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sf_s_v",
+   "fieldtype": "Data",
+   "label": "Sd (S)"
+  },
+  {
+   "fieldname": "column_break_ylivv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cil_s_v",
+   "fieldtype": "Data",
+   "label": "Cil (S)"
+  },
+  {
+   "fieldname": "column_break_9bmrv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "asse_s_v",
+   "fieldtype": "Data",
+   "label": "Asse (S)"
+  },
   {
    "fieldname": "section_break_33",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "encounter_comment",
-   "fieldtype": "Small Text",
-   "ignore_xss_filter": 1,
-   "label": "Review Details",
-   "no_copy": 1
   },
   {
    "fieldname": "amended_from",
@@ -325,17 +338,76 @@
    "label": "Per Lontano"
   },
   {
-    "fieldname": "per_vicino",
-    "fieldtype": "Section Break",
-    "label": "Per Vicino"
-   }
+   "fieldname": "per_vicino",
+   "fieldtype": "Section Break",
+   "label": "Per Vicino"
+  },
+  {
+   "fieldname": "section_break_xsevu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "prisma_d",
+   "fieldtype": "Data",
+   "label": "Prisma (D)"
+  },
+  {
+   "fieldname": "column_break_izjso",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "base_d",
+   "fieldtype": "Data",
+   "label": "Base (D)"
+  },
+  {
+   "fieldname": "column_break_fy77r",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "prisma_s",
+   "fieldtype": "Data",
+   "label": "Prisma (S)"
+  },
+  {
+   "fieldname": "column_break_puln8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "base_s",
+   "fieldtype": "Data",
+   "label": "Base (S)"
+  },
+  {
+   "fieldname": "section_break_xkl0d",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "distanza_centro_ottici_mm",
+   "fieldtype": "Data",
+   "label": "Distanza centro ottici mm"
+  },
+  {
+   "fieldname": "distanza_della_cornea_mm",
+   "fieldtype": "Data",
+   "label": "Distanza della cornea mm"
+  },
+  {
+   "fieldname": "column_break_hjotp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Small Text",
+   "label": "Note"
+  }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-31 14:10:15.085619",
+ "modified": "2024-01-31 14:27:55.291447",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
- "name": "Prescrizioni Lenti",
+ "name": "Prescrizione Lenti",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [

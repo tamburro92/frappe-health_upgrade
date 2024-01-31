@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestPrescrizioniLenti(FrappeTestCase):
+class TestPrescrizioneLenti(FrappeTestCase):
 	pass

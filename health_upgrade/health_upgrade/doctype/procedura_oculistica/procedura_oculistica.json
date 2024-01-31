@@ -46,7 +46,7 @@
   "symptoms_in_print",
   "diagnosis_in_print",
   "section_break_33",
-  "encounter_comment",
+  "note",
   "amended_from"
  ],
  "fields": [
@@ -293,13 +293,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "encounter_comment",
-   "fieldtype": "Small Text",
-   "ignore_xss_filter": 1,
-   "label": "Review Details",
-   "no_copy": 1
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -308,11 +301,18 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Small Text",
+   "ignore_xss_filter": 1,
+   "label": "Note",
+   "no_copy": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-31 12:15:40.115602",
+ "modified": "2024-01-31 14:51:39.795990",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Procedura Oculistica",
