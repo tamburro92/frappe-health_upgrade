@@ -180,7 +180,16 @@ Now press (Ctrl-X) to exit
 	swapon --show
 	sudo sysctl -w vm.swappiness=1
 
+### Configure S3 Backup
+	sudo apt-get install awscli
+ 	sudo chmod +x s3_backup.sh
+	crontab -e
+Add lines:
+
+	0 0 * * * /home/ubuntu/s3_backup.sh # Run S3 Backup every day at midnight
+
 ### BACKUP / RESTORE
+	bench --site all backup --with-files --compress --backup-path backups
 	bench --site {site} backup --with-files
 	bench --site {site} restore {path/to/database/file}
 		--with-public-files {path/to/public/archive}
