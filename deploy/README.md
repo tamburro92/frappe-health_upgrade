@@ -202,5 +202,3 @@ Now press (Ctrl-X) to exit
    
     sudo certbot renew --dry-run
 
-
-    
