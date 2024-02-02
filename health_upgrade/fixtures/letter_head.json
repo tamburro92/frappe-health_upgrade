@@ -14,9 +14,9 @@
   "image": null,
   "image_height": 0.0,
   "image_width": 0.0,
-  "is_default": 1,
+  "is_default": 0,
   "letter_head_name": "Template Medico",
-  "modified": "2024-01-20 17:00:45.994839",
+  "modified": "2024-02-02 15:55:36.604113",
   "name": "Template Medico",
   "source": "Image"
  },

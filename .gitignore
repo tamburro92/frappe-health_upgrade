@@ -9,3 +9,4 @@ node_modules/
 health_upgrade/public/dist/
 _scraping/
 porting/
+__pycache__

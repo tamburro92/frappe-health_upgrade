@@ -43,6 +43,10 @@
   "referti_esami",
   "diagnosi_section",
   "diagnosi",
+  "indicazioni_section",
+  "indicazioni",
+  "diario_section",
+  "diario",
   "symptoms_in_print",
   "diagnosis_in_print",
   "section_break_33",
@@ -308,11 +312,31 @@
    "ignore_xss_filter": 1,
    "label": "Note",
    "no_copy": 1
+  },
+  {
+   "fieldname": "indicazioni_section",
+   "fieldtype": "Section Break",
+   "label": "Indicazioni"
+  },
+  {
+   "fieldname": "indicazioni",
+   "fieldtype": "Small Text",
+   "label": "Indicazioni"
+  },
+  {
+   "fieldname": "diario_section",
+   "fieldtype": "Section Break",
+   "label": "Diario"
+  },
+  {
+   "fieldname": "diario",
+   "fieldtype": "Small Text",
+   "label": "Diario"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-31 14:51:39.795990",
+ "modified": "2024-02-02 16:00:08.627885",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Procedura Oculistica",
