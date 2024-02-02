@@ -47,8 +47,6 @@
   "indicazioni",
   "diario_section",
   "diario",
-  "symptoms_in_print",
-  "diagnosis_in_print",
   "section_break_33",
   "note",
   "amended_from"
@@ -273,28 +271,9 @@
    "label": "Diagnosi"
   },
   {
-   "default": "0",
-   "depends_on": "eval: doc.symptoms != ''",
-   "fieldname": "symptoms_in_print",
-   "fieldtype": "Check",
-   "label": "In print",
-   "no_copy": 1,
-   "print_hide": 1,
-   "report_hide": 1
-  },
-  {
-   "default": "1",
-   "depends_on": "eval: doc.diagnosis != ''",
-   "fieldname": "diagnosis_in_print",
-   "fieldtype": "Check",
-   "label": "In print",
-   "no_copy": 1,
-   "print_hide": 1,
-   "report_hide": 1
-  },
-  {
    "fieldname": "section_break_33",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Note"
   },
   {
    "fieldname": "amended_from",
@@ -336,7 +315,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-02 16:00:08.627885",
+ "modified": "2024-02-03 00:01:42.324323",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Procedura Oculistica",
