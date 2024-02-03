@@ -5,7 +5,7 @@ from frappe.contacts.doctype.address.address import get_default_address
 from frappe.contacts.doctype.contact.contact import get_default_contact
 import json
 
-ADDRESS_FIELDS = ['custom_address_line_1','custom_address_line_2','custom_address_town','custom_pincode','custom_country']
+ADDRESS_FIELDS = ['custom_address_line_1','custom_address_line_2','custom_address_town','custom_pincode','custom_country', 'custom_state', 'custom_state_code']
 CONTACT_FIELDS = ['custom_mobile','custom_email']
 
 def handle_primary_contact(args):
@@ -86,7 +86,8 @@ def handle_primary_address(args):
 		addr.address_line1 = args.get("custom_address_line_1")
 		addr.address_line2 = args.get("custom_address_line_2")
 		addr.city = args.get("custom_address_town")
-		#addr.state = self.get("custom_state")
+		addr.state = args.get("custom_state")
+		addr.state_code = args.get("custom_state_code")
 		addr.pincode = args.get("custom_pincode")
 		addr.country = args.get("custom_country")
 		addr.save()
@@ -101,7 +102,8 @@ def make_address(args, is_primary_address=1):
 			"address_line1": args.get("custom_address_line_1"),
 			"address_line2": args.get("custom_address_line_2"),
 			"city": args.get("custom_address_town"),
-			#"state": args.get("state"),
+			"state": args.get("custom_state"),
+			"state_code": args.get("custom_state_code"),
 			"pincode": args.get("custom_pincode"),
 			"country": args.get("custom_country"),
 			"links": [{"link_doctype": "Customer", "link_name": args.get("name")}],
@@ -128,7 +130,6 @@ def make_contact(args, is_primary_contact=1):
 
 	return contact
 
-	return contact
 
 @frappe.whitelist()
 def get_default_address_and_contact_data(doctype, name):

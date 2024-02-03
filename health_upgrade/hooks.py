@@ -61,7 +61,7 @@ fixtures = [{
       },
     {
           "dt": "Workspace",
-          "filters": [["name", "in", [ "Home"]]]
+          "filters": [["name", "in", [ "Home", "Healthcare"]]]
       }
 
 ]
@@ -74,7 +74,8 @@ doctype_js = {
     "Sales Invoice": "public/js/sales_invoice.js",
     "Customer": "public/js/customer.js",
     "Company": "public/js/company.js",
-    "Patient": "public/js/patient.js"
+    "Patient": "public/js/patient.js",
+    "Patient History Settings": "public/js/patient_history_settings.js"
 }
 doctype_list_js = {"Sales Invoice" : "public/js/sales_invoice_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -101,16 +102,23 @@ doctype_calendar_js = {"Patient Appointment" : "public/js/patient_appointment_ca
 # ----------
 
 # add methods and filters to jinja environment
-# jinja = {
-#	"methods": "health_upgrade.utils.jinja_methods",
+jinja = {
+	"methods": ["health_upgrade.health_upgrade.overrides.customer.get_default_address_and_contact_data"]
 #	"filters": "health_upgrade.utils.jinja_filters"
-# }
+}
+
+#jenv = {
+#	"methods": [
+#		"get_default_address_and_contact_data:health_upgrade.health_upgrade.overrides.customer.get_default_address_and_contact_data"
+#	]
+#}
+
 
 # Installation
 # ------------
 
 # before_install = "health_upgrade.install.before_install"
-# after_install = "health_upgrade.install.after_install"
+after_install = "health_upgrade.setup.setup_health_upgrade"
 
 # Uninstallation
 # ------------
@@ -167,13 +175,13 @@ override_doctype_class = {
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"*": {
+		"on_submit": "health_upgrade.health_upgrade.overrides.patient_history_settings.create_medical_record",
+		"on_cancel": "health_upgrade.health_upgrade.overrides.patient_history_settings.delete_medical_record",
+		"on_update_after_submit": "health_upgrade.health_upgrade.overrides.patient_history_settings.update_medical_record",
+	}
+}
 
 # Scheduled Tasks
 # ---------------
@@ -207,7 +215,9 @@ override_doctype_class = {
 override_whitelisted_methods = {
 	"healthcare.healthcare.doctype.patient_appointment.patient_appointment.get_availability_data": "health_upgrade.health_upgrade.overrides.patient_appointment.get_availability_data",
     "healthcare.healthcare.doctype.patient_appointment.patient_appointment.get_events": "health_upgrade.health_upgrade.overrides.patient_appointment.get_events",
- 	"frappe.desk.page.setup_wizard.setup_wizard.setup_complete": "health_upgrade.health_upgrade.overrides.setup_wizard.setup_complete"
+ 	"frappe.desk.page.setup_wizard.setup_wizard.setup_complete": "health_upgrade.health_upgrade.overrides.setup_wizard.setup_complete",
+  	"healthcare.healthcare.doctype.patient_history_settings.validate_medical_record_required": "health_upgrade.health_upgrade.overrides.patient_history_settings.validate_medical_record_required"
+
  }
 #
 # each overriding function accepts a `data` argument;

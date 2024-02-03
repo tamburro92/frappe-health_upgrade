@@ -67,6 +67,8 @@ var display_default_address_and_contact = function(frm){
 					frm.set_value( "custom_address_line_2", r.message.address.address_line2, undefined, true);
 					frm.set_value( "custom_pincode", r.message.address.pincode, undefined, true);
 					frm.set_value( "custom_address_town", r.message.address.city, undefined, true);
+					frm.set_value( "custom_state", r.message.address.state, undefined, true);			
+					frm.set_value( "custom_state_code", r.message.address.state_code, undefined, true);			
 					frm.set_value( "custom_country", r.message.address.country, undefined, true);			
 				}
 				if(r.message.contact){
@@ -118,6 +120,19 @@ var show_address_dialog = function(frm) {
 
 			},
 			{
+				label: __('Provincia'),
+				fieldname: 'state',
+				fieldtype: 'Data',
+				default: frm.doc.custom_state,
+
+			},
+			{
+				label: __('Sigla Provincia'),
+				fieldname: 'state_code',
+				fieldtype: 'Data',
+				default: frm.doc.custom_state_code,
+			},
+			{
 				label: __('Country'),
 				fieldname: 'country',
 				fieldtype: 'Link',
@@ -166,6 +181,8 @@ var show_address_dialog = function(frm) {
 				address.custom_pincode= values.pincode;
 				address.custom_address_town= values.city;
 				address.custom_country= values.country;
+				address.custom_state= values.state;
+				address.custom_state_code= values.state_code;
 
 				var contact = {};
 				contact.custom_phone = values.phone;

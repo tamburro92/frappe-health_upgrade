@@ -105,7 +105,16 @@ frappe.ui.form.PatientQuickEntryForm = class PatientQuickEntryForm extends frapp
 				fieldname: 'city',
 				fieldtype: 'Data'
 			},
-			
+			{
+				label: __('Provincia'),
+				fieldname: 'state',
+				fieldtype: 'Data'
+			},
+			{
+				label: __('Sigla Provincia'),
+				fieldname: 'state_code',
+				fieldtype: 'Data'
+			},
 			{
 				label: __('Country'),
 				fieldname: 'country',
