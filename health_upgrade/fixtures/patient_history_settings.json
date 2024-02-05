@@ -1,0 +1,92 @@
+[
+ {
+  "custom_doctypes": [
+   {
+    "date_fieldname": "encounter_date",
+    "document_type": "Procedura Oculistica",
+    "parent": "Patient History Settings",
+    "parentfield": "custom_doctypes",
+    "parenttype": "Patient History Settings",
+    "selected_fields": null
+   },
+   {
+    "date_fieldname": "encounter_date",
+    "document_type": "Prescrizione Lenti",
+    "parent": "Patient History Settings",
+    "parentfield": "custom_doctypes",
+    "parenttype": "Patient History Settings",
+    "selected_fields": null
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Patient History Settings",
+  "modified": "2024-02-03 19:33:57.714416",
+  "name": "Patient History Settings",
+  "standard_doctypes": [
+   {
+    "date_fieldname": "encounter_date",
+    "document_type": "Patient Encounter",
+    "parent": "Patient History Settings",
+    "parentfield": "standard_doctypes",
+    "parenttype": "Patient History Settings",
+    "selected_fields": "[{\"label\": \"Healthcare Practitioner\", \"fieldname\": \"practitioner\", \"fieldtype\": \"Link\"}, {\"label\": \"Symptoms\", \"fieldname\": \"symptoms\", \"fieldtype\": \"Table Multiselect\"}, {\"label\": \"Diagnosis\", \"fieldname\": \"diagnosis\", \"fieldtype\": \"Table Multiselect\"}, {\"label\": \"Drug Prescription\", \"fieldname\": \"drug_prescription\", \"fieldtype\": \"Table\"}, {\"label\": \"Lab Tests\", \"fieldname\": \"lab_test_prescription\", \"fieldtype\": \"Table\"}, {\"label\": \"Clinical Procedures\", \"fieldname\": \"procedure_prescription\", \"fieldtype\": \"Table\"}, {\"label\": \"Therapies\", \"fieldname\": \"therapies\", \"fieldtype\": \"Table\"}, {\"label\": \"Review Details\", \"fieldname\": \"encounter_comment\", \"fieldtype\": \"Small Text\"}]"
+   },
+   {
+    "date_fieldname": "start_date",
+    "document_type": "Clinical Procedure",
+    "parent": "Patient History Settings",
+    "parentfield": "standard_doctypes",
+    "parenttype": "Patient History Settings",
+    "selected_fields": "[{\"label\": \"Procedure Template\", \"fieldname\": \"procedure_template\", \"fieldtype\": \"Link\"}, {\"label\": \"Healthcare Practitioner\", \"fieldname\": \"practitioner\", \"fieldtype\": \"Link\"}, {\"label\": \"Notes\", \"fieldname\": \"notes\", \"fieldtype\": \"Small Text\"}, {\"label\": \"Service Unit\", \"fieldname\": \"service_unit\", \"fieldtype\": \"Healthcare Service Unit\"}, {\"label\": \"Start Time\", \"fieldname\": \"start_time\", \"fieldtype\": \"Time\"}, {\"label\": \"Sample\", \"fieldname\": \"sample\", \"fieldtype\": \"Link\"}]"
+   },
+   {
+    "date_fieldname": "result_date",
+    "document_type": "Lab Test",
+    "parent": "Patient History Settings",
+    "parentfield": "standard_doctypes",
+    "parenttype": "Patient History Settings",
+    "selected_fields": "[{\"label\": \"Test Template\", \"fieldname\": \"template\", \"fieldtype\": \"Link\"}, {\"label\": \"Healthcare Practitioner\", \"fieldname\": \"practitioner\", \"fieldtype\": \"Link\"}, {\"label\": \"Test Name\", \"fieldname\": \"lab_test_name\", \"fieldtype\": \"Data\"}, {\"label\": \"Lab Technician Name\", \"fieldname\": \"employee_name\", \"fieldtype\": \"Data\"}, {\"label\": \"Sample ID\", \"fieldname\": \"sample\", \"fieldtype\": \"Link\"}, {\"label\": \"Normal Test Result\", \"fieldname\": \"normal_test_items\", \"fieldtype\": \"Table\"}, {\"label\": \"Descriptive Test Result\", \"fieldname\": \"descriptive_test_items\", \"fieldtype\": \"Table\"}, {\"label\": \"Organism Test Result\", \"fieldname\": \"organism_test_items\", \"fieldtype\": \"Table\"}, {\"label\": \"Sensitivity Test Result\", \"fieldname\": \"sensitivity_test_items\", \"fieldtype\": \"Table\"}, {\"label\": \"Comments\", \"fieldname\": \"lab_test_comment\", \"fieldtype\": \"Table\"}]"
+   },
+   {
+    "date_fieldname": "start_date",
+    "document_type": "Therapy Session",
+    "parent": "Patient History Settings",
+    "parentfield": "standard_doctypes",
+    "parenttype": "Patient History Settings",
+    "selected_fields": "[{\"label\": \"Therapy Type\", \"fieldname\": \"therapy_type\", \"fieldtype\": \"Link\"}, {\"label\": \"Healthcare Practitioner\", \"fieldname\": \"practitioner\", \"fieldtype\": \"Link\"}, {\"label\": \"Therapy Plan\", \"fieldname\": \"therapy_plan\", \"fieldtype\": \"Link\"}, {\"label\": \"Duration\", \"fieldname\": \"duration\", \"fieldtype\": \"Int\"}, {\"label\": \"Location\", \"fieldname\": \"location\", \"fieldtype\": \"Link\"}, {\"label\": \"Healthcare Service Unit\", \"fieldname\": \"service_unit\", \"fieldtype\": \"Link\"}, {\"label\": \"Start Time\", \"fieldname\": \"start_time\", \"fieldtype\": \"Time\"}, {\"label\": \"Exercises\", \"fieldname\": \"exercises\", \"fieldtype\": \"Table\"}, {\"label\": \"Total Counts Targeted\", \"fieldname\": \"total_counts_targeted\", \"fieldtype\": \"Int\"}, {\"label\": \"Total Counts Completed\", \"fieldname\": \"total_counts_completed\", \"fieldtype\": \"Int\"}]"
+   },
+   {
+    "date_fieldname": "signs_date",
+    "document_type": "Vital Signs",
+    "parent": "Patient History Settings",
+    "parentfield": "standard_doctypes",
+    "parenttype": "Patient History Settings",
+    "selected_fields": "[{\"label\": \"Body Temperature\", \"fieldname\": \"temperature\", \"fieldtype\": \"Data\"}, {\"label\": \"Heart Rate / Pulse\", \"fieldname\": \"pulse\", \"fieldtype\": \"Data\"}, {\"label\": \"Respiratory rate\", \"fieldname\": \"respiratory_rate\", \"fieldtype\": \"Data\"}, {\"label\": \"Tongue\", \"fieldname\": \"tongue\", \"fieldtype\": \"Select\"}, {\"label\": \"Abdomen\", \"fieldname\": \"abdomen\", \"fieldtype\": \"Select\"}, {\"label\": \"Reflexes\", \"fieldname\": \"reflexes\", \"fieldtype\": \"Select\"}, {\"label\": \"Blood Pressure\", \"fieldname\": \"bp\", \"fieldtype\": \"Data\"}, {\"label\": \"Notes\", \"fieldname\": \"vital_signs_note\", \"fieldtype\": \"Small Text\"}, {\"label\": \"Height (In Meter)\", \"fieldname\": \"height\", \"fieldtype\": \"Float\"}, {\"label\": \"Weight (In Kilogram)\", \"fieldname\": \"weight\", \"fieldtype\": \"Float\"}, {\"label\": \"BMI\", \"fieldname\": \"bmi\", \"fieldtype\": \"Float\"}]"
+   },
+   {
+    "date_fieldname": "start_date",
+    "document_type": "Inpatient Medication Order",
+    "parent": "Patient History Settings",
+    "parentfield": "standard_doctypes",
+    "parenttype": "Patient History Settings",
+    "selected_fields": "[{\"label\": \"Healthcare Practitioner\", \"fieldname\": \"practitioner\", \"fieldtype\": \"Link\"}, {\"label\": \"Start Date\", \"fieldname\": \"start_date\", \"fieldtype\": \"Date\"}, {\"label\": \"End Date\", \"fieldname\": \"end_date\", \"fieldtype\": \"Date\"}, {\"label\": \"Medication Orders\", \"fieldname\": \"medication_orders\", \"fieldtype\": \"Table\"}, {\"label\": \"Total Orders\", \"fieldname\": \"total_orders\", \"fieldtype\": \"Float\"}]"
+   },
+   {
+    "date_fieldname": "encounter_date",
+    "document_type": "Procedura Oculistica",
+    "parent": "Patient History Settings",
+    "parentfield": "standard_doctypes",
+    "parenttype": "Patient History Settings",
+    "selected_fields": "[{\"label\": \"Healthcare Practitioner\", \"fieldname\": \"practitioner\", \"fieldtype\": \"Link\"}, {\"label\": \"Interventi\", \"fieldname\": \"interventi\", \"fieldtype\": \"Small Text\"}, {\"label\": \"Amnesi Generale\", \"fieldname\": \"amnesi_generale\", \"fieldtype\": \"Small Text\"}, {\"label\": \"Amnesi Oculare\", \"fieldname\": \"amnesi_oculare\", \"fieldtype\": \"Small Text\"}, {\"label\": \"Amnesi Ortottica\", \"fieldname\": \"amnesi_ortottica\", \"fieldtype\": \"Small Text\"}, {\"label\": \"Esame Obiettivo\", \"fieldname\": \"esame_obiettivo\", \"fieldtype\": \"Small Text\"}, {\"label\": \"Referti Esami\", \"fieldname\": \"referti_esami\", \"fieldtype\": \"Small Text\"}, {\"label\": \"Diagnosi\", \"fieldname\": \"diagnosi\", \"fieldtype\": \"Small Text\"}, {\"label\": \"Indicazioni\", \"fieldname\": \"indicazioni\", \"fieldtype\": \"Small Text\"}, {\"label\": \"Diario\", \"fieldname\": \"diario\", \"fieldtype\": \"Small Text\"}]"
+   },
+   {
+    "date_fieldname": "encounter_date",
+    "document_type": "Prescrizione Lenti",
+    "parent": "Patient History Settings",
+    "parentfield": "standard_doctypes",
+    "parenttype": "Patient History Settings",
+    "selected_fields": "[{\"label\": \"Healthcare Practitioner\", \"fieldname\": \"practitioner\", \"fieldtype\": \"Link\"}]"
+   }
+  ]
+ }
+]

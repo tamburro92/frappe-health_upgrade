@@ -5,7 +5,7 @@ from frappe import _
 
 def setup_health_upgrade():
 
-	create_custom_records()
+	#create_custom_records()
 	frappe.clear_cache()
 
 

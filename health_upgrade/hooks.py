@@ -59,10 +59,11 @@ fixtures = [{
           "dt": "Role Profile",
           "filters": [["name", "in", [ "Utente Admin"]]]
       },
-    {
+      {
           "dt": "Workspace",
           "filters": [["name", "in", [ "Home", "Healthcare"]]]
-      }
+      },
+      {"dt":"Patient History Settings"}
 
 ]
 
