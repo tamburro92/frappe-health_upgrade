@@ -41,6 +41,18 @@
   "cil_s_l",
   "column_break_9bmrd",
   "asse_s_l",
+  "per_intermedio",
+  "sf_d_i",
+  "column_break_randi",
+  "cil_d_i",
+  "column_break_h0l2i",
+  "asse_d_i",
+  "column_break_dey9i",
+  "sf_s_i",
+  "column_break_ylivi",
+  "cil_s_i",
+  "column_break_9bmri",
+  "asse_s_i",
   "per_vicino",
   "sf_d_v",
   "column_break_randv",
@@ -65,6 +77,14 @@
   "distanza_centro_ottici_mm",
   "column_break_hjotp",
   "distanza_della_cornea_mm",
+  "lenti_consigliate_section",
+  "progressive",
+  "altri_trattamenti",
+  "column_break_pmzjr",
+  "office",
+  "trattamento_anti_riflesso",
+  "column_break_sloan",
+  "fotocromatiche",
   "section_break_33",
   "note",
   "amended_from"
@@ -269,6 +289,56 @@
    "label": "Asse (S)"
   },
   {
+   "fieldname": "sf_d_i",
+   "fieldtype": "Data",
+   "label": "Sf (D)"
+  },
+  {
+   "fieldname": "column_break_randi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cil_d_i",
+   "fieldtype": "Data",
+   "label": "Cil (D)"
+  },
+  {
+   "fieldname": "column_break_h0l2i",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "asse_d_i",
+   "fieldtype": "Data",
+   "label": "Asse (D)"
+  },
+  {
+   "fieldname": "column_break_dey9i",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sf_s_i",
+   "fieldtype": "Data",
+   "label": "Sf (S)"
+  },
+  {
+   "fieldname": "column_break_ylivi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cil_s_i",
+   "fieldtype": "Data",
+   "label": "Cil (S)"
+  },
+  {
+   "fieldname": "column_break_9bmri",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "asse_s_i",
+   "fieldtype": "Data",
+   "label": "Asse (S)"
+  },
+  {
    "fieldname": "sf_d_v",
    "fieldtype": "Data",
    "label": "Sf (D)"
@@ -338,6 +408,11 @@
    "label": "Per Lontano"
   },
   {
+   "fieldname": "per_intermedio",
+   "fieldtype": "Section Break",
+   "label": "Per Intermedio"
+  },
+  {
    "fieldname": "per_vicino",
    "fieldtype": "Section Break",
    "label": "Per Vicino"
@@ -400,11 +475,54 @@
    "fieldname": "note",
    "fieldtype": "Small Text",
    "label": "Note"
+  },
+  {
+   "fieldname": "lenti_consigliate_section",
+   "fieldtype": "Section Break",
+   "label": "Lenti Consigliate"
+  },
+  {
+   "default": "0",
+   "fieldname": "progressive",
+   "fieldtype": "Check",
+   "label": "Progressive"
+  },
+  {
+   "default": "0",
+   "fieldname": "altri_trattamenti",
+   "fieldtype": "Check",
+   "label": "Altri Trattamenti"
+  },
+  {
+   "fieldname": "column_break_pmzjr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "office",
+   "fieldtype": "Check",
+   "label": "Office"
+  },
+  {
+   "default": "0",
+   "fieldname": "trattamento_anti_riflesso",
+   "fieldtype": "Check",
+   "label": "Trattamento anti riflesso"
+  },
+  {
+   "fieldname": "column_break_sloan",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "fotocromatiche",
+   "fieldtype": "Check",
+   "label": "Fotocromatiche"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-03 00:07:15.055284",
+ "modified": "2024-02-05 16:07:53.028424",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Prescrizione Lenti",
