@@ -62,8 +62,8 @@
   "richiedo_column",
   "richiedo_campo_visivo",
   "richiedo_oct_maculare",
-  "richiedo_oct_rnfl",
-  "richiedo_angio_oct",
+  "richiedo_oct_rnfl2",
+  "richiedo_angio_oct2",
   "richiedo_fag",
   "richiedo_ecografia_oculare",
   "richiedo_topografia_corneale",
@@ -362,7 +362,7 @@
    "fieldname": "foo",
    "fieldtype": "Select",
    "label": "FOO",
-   "options": " \nNella norma per l'et\u00e0\nNon segni di retinopatia diabetica\nDegenerazione maculare\nDistacco posteriore del vitreo\nPapille con aumentata escovazione\nPuker maculare"
+   "options": "\nNella norma per l'et\u00e0\nNon segni di retinopatia diabetica\nDegenerazione maculare\nDistacco posteriore del vitreo\nPapille con aumentata escovazione\nPuker maculare"
   },
   {
    "fieldname": "column_break_nsh4b",
@@ -426,16 +426,6 @@
    "label": "Richiedo OCT maculare"
   },
   {
-   "fieldname": "richiedo_oct_rnfl",
-   "fieldtype": "Data",
-   "label": "Richiedo OCT RNFL"
-  },
-  {
-   "fieldname": "richiedo_angio_oct",
-   "fieldtype": "Data",
-   "label": "Richiedo ANGIO OCT"
-  },
-  {
    "default": "0",
    "fieldname": "richiedo_fag",
    "fieldtype": "Check",
@@ -452,11 +442,23 @@
    "fieldname": "richiedo_topografia_corneale",
    "fieldtype": "Check",
    "label": "Richiedo topografia corneale"
+  },
+  {
+   "default": "0",
+   "fieldname": "richiedo_oct_rnfl2",
+   "fieldtype": "Check",
+   "label": "Richiedo OCT RNFL"
+  },
+  {
+   "default": "0",
+   "fieldname": "richiedo_angio_oct2",
+   "fieldtype": "Check",
+   "label": "Richiedo ANGIO OCT"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-07 17:16:21.501814",
+ "modified": "2024-02-07 18:24:28.540536",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Procedura Oculistica",
