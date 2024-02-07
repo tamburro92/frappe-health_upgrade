@@ -427,12 +427,12 @@
   },
   {
    "fieldname": "richiedo_oct_rnfl",
-   "fieldtype": "Data",
+   "fieldtype": "Check",
    "label": "Richiedo OCT RNFL"
   },
   {
    "fieldname": "richiedo_angio_oct",
-   "fieldtype": "Data",
+   "fieldtype": "Check",
    "label": "Richiedo ANGIO OCT"
   },
   {
