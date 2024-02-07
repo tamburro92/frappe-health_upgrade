@@ -48,8 +48,6 @@
   "foo",
   "referti_esami_section",
   "referti_esami",
-  "diagnosi_section",
-  "diagnosi",
   "indicazioni_section",
   "indicazioni",
   "terapia_section",
@@ -283,16 +281,6 @@
    "label": "Referti Esami"
   },
   {
-   "fieldname": "diagnosi_section",
-   "fieldtype": "Section Break",
-   "label": "Diagnosi"
-  },
-  {
-   "fieldname": "diagnosi",
-   "fieldtype": "Small Text",
-   "label": "Diagnosi"
-  },
-  {
    "fieldname": "section_break_33",
    "fieldtype": "Section Break",
    "label": "Note"
@@ -458,7 +446,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-07 18:24:28.540536",
+ "modified": "2024-02-07 18:29:16.740378",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Procedura Oculistica",
