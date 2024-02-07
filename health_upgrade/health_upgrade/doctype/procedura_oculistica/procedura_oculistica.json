@@ -39,12 +39,34 @@
   "amnesi_ortottica",
   "esame_obiettivo_section",
   "esame_obiettivo",
+  "column_break_nsh4b",
+  "vod",
+  "vos",
+  "too",
+  "column_break_x38ri",
+  "boo",
+  "foo",
   "referti_esami_section",
   "referti_esami",
   "diagnosi_section",
   "diagnosi",
   "indicazioni_section",
   "indicazioni",
+  "terapia_section",
+  "consiglio_column",
+  "consiglio_lenti",
+  "consiglio_intervento_di_cataratta",
+  "consiglio_trattamento_di_barrage_laser",
+  "consiglio_copsulotomia_yag_laser",
+  "consiglio_iridotomia_yag_laser",
+  "richiedo_column",
+  "richiedo_campo_visivo",
+  "richiedo_oct_maculare",
+  "richiedo_oct_rnfl",
+  "richiedo_angio_oct",
+  "richiedo_fag",
+  "richiedo_ecografia_oculare",
+  "richiedo_topografia_corneale",
   "diario_section",
   "diario",
   "section_break_33",
@@ -311,11 +333,130 @@
    "fieldname": "diario",
    "fieldtype": "Small Text",
    "label": "Diario"
+  },
+  {
+   "fieldname": "vod",
+   "fieldtype": "Data",
+   "label": "VOD"
+  },
+  {
+   "fieldname": "vos",
+   "fieldtype": "Data",
+   "label": "VOS"
+  },
+  {
+   "fieldname": "too",
+   "fieldtype": "Data",
+   "label": "TOO"
+  },
+  {
+   "fieldname": "column_break_x38ri",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "boo",
+   "fieldtype": "Data",
+   "label": "BOO"
+  },
+  {
+   "fieldname": "foo",
+   "fieldtype": "Select",
+   "label": "FOO",
+   "options": "Nella norma per l'et\u00e0\nNon segni di retinopatia diabetica\nDegenerazione maculare\nDistacco posteriore del vitreo\nPapiplle con aumentata escovazione\nPuker maculare"
+  },
+  {
+   "fieldname": "column_break_nsh4b",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "terapia_section",
+   "fieldtype": "Section Break",
+   "label": "Terapia"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_lenti",
+   "fieldtype": "Check",
+   "label": "Consiglio Lenti"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_intervento_di_cataratta",
+   "fieldtype": "Check",
+   "label": "Consiglio intervento di cataratta"
+  },
+  {
+   "fieldname": "richiedo_column",
+   "fieldtype": "Column Break",
+   "label": "Richiedo"
+  },
+  {
+   "default": "0",
+   "fieldname": "richiedo_campo_visivo",
+   "fieldtype": "Check",
+   "label": "Richiedo campo visivo"
+  },
+  {
+   "fieldname": "consiglio_column",
+   "fieldtype": "Column Break",
+   "label": "Consiglio"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_trattamento_di_barrage_laser",
+   "fieldtype": "Check",
+   "label": "Consiglio trattamento di barrage laser"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_copsulotomia_yag_laser",
+   "fieldtype": "Check",
+   "label": "Consiglio copsulotomia yag laser"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_iridotomia_yag_laser",
+   "fieldtype": "Check",
+   "label": "Consiglio iridotomia yag laser"
+  },
+  {
+   "default": "0",
+   "fieldname": "richiedo_oct_maculare",
+   "fieldtype": "Check",
+   "label": "Richiedo OCT maculare"
+  },
+  {
+   "fieldname": "richiedo_oct_rnfl",
+   "fieldtype": "Data",
+   "label": "Richiedo OCT RNFL"
+  },
+  {
+   "fieldname": "richiedo_angio_oct",
+   "fieldtype": "Data",
+   "label": "Richiedo ANGIO OCT"
+  },
+  {
+   "default": "0",
+   "fieldname": "richiedo_fag",
+   "fieldtype": "Check",
+   "label": "Richiedo FAG"
+  },
+  {
+   "default": "0",
+   "fieldname": "richiedo_ecografia_oculare",
+   "fieldtype": "Check",
+   "label": "Richiedo ecografia oculare"
+  },
+  {
+   "default": "0",
+   "fieldname": "richiedo_topografia_corneale",
+   "fieldtype": "Check",
+   "label": "Richiedo topografia corneale"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-03 00:01:42.324323",
+ "modified": "2024-02-07 17:16:21.501814",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Procedura Oculistica",
