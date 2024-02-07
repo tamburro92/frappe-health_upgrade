@@ -362,7 +362,7 @@
    "fieldname": "foo",
    "fieldtype": "Select",
    "label": "FOO",
-   "options": "Nella norma per l'et\u00e0\nNon segni di retinopatia diabetica\nDegenerazione maculare\nDistacco posteriore del vitreo\nPapiplle con aumentata escovazione\nPuker maculare"
+   "options": " \nNella norma per l'et\u00e0\nNon segni di retinopatia diabetica\nDegenerazione maculare\nDistacco posteriore del vitreo\nPapiplle con aumentata escovazione\nPuker maculare"
   },
   {
    "fieldname": "column_break_nsh4b",
