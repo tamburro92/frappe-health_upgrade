@@ -154,5 +154,31 @@
   "name": "06eed6d464",
   "source_text": "Daily Patient Appointments",
   "translated_text": "Appuntamenti Giornalieri Paziente"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "it",
+  "modified": "2024-02-14 16:47:21.090956",
+  "name": "6c5fc1fd59",
+  "source_text": "Connections",
+  "translated_text": "Connessioni"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "it",
+  "modified": "2024-02-15 13:56:11.372605",
+  "name": "31ba68155d",
+  "source_text": "Procedura Oculisticas",
+  "translated_text": "Procedura Oculistica"
  }
 ]

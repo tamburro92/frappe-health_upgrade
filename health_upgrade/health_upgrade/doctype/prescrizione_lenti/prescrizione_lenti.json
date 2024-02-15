@@ -74,9 +74,6 @@
   "column_break_puln8",
   "base_s",
   "section_break_xkl0d",
-  "distanza_centro_ottici_mm",
-  "column_break_hjotp",
-  "distanza_della_cornea_mm",
   "lenti_consigliate_section",
   "progressive",
   "altri_trattamenti",
@@ -458,20 +455,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "distanza_centro_ottici_mm",
-   "fieldtype": "Data",
-   "label": "Distanza centro ottici mm"
-  },
-  {
-   "fieldname": "distanza_della_cornea_mm",
-   "fieldtype": "Data",
-   "label": "Distanza della cornea mm"
-  },
-  {
-   "fieldname": "column_break_hjotp",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "note",
    "fieldtype": "Small Text",
    "label": "Note"
@@ -522,7 +505,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-05 16:07:53.028424",
+ "modified": "2024-02-14 17:01:50.842676",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Prescrizione Lenti",

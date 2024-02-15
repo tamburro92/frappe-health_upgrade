@@ -42,11 +42,25 @@ frappe.ui.form.on("Patient Appointment", {
 				});
 			});
 		}
-
+		
 		if (["Open", "Checked In"].includes(frm.doc.status) || (frm.doc.status == 'Scheduled' && !frm.doc.__islocal)) {
 				frm.add_custom_button(__('Clinical Procedure'), function() {
 					frappe.model.open_mapped_doc({
 						method: 'healthcare.healthcare.doctype.clinical_procedure.clinical_procedure.make_procedure',
+						frm: frm,
+					});
+				}, __('Create'));
+
+				frm.add_custom_button(__('Procedura oculistica'), function() {
+					frappe.model.open_mapped_doc({
+						method: 'health_upgrade.health_upgrade.doctype.procedura_oculistica.procedura_oculistica.make_procedura_from_appointment',
+						frm: frm,
+					});
+				}, __('Create'));
+
+				frm.add_custom_button(__('Prescrizione lenti'), function() {
+					frappe.model.open_mapped_doc({
+						method: 'health_upgrade.health_upgrade.doctype.prescrizione_lenti.prescrizione_lenti.make_prescrizione_from_appointment',
 						frm: frm,
 					});
 				}, __('Create'));
