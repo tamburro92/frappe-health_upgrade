@@ -41,10 +41,10 @@
   "amnesi_ortottica_section",
   "an_ortottica_in_print",
   "amnesi_ortottica",
+  "esame_clinico_section",
+  "es_clinico_in_print",
+  "esame_clinico",
   "esame_obiettivo_section",
-  "es_obiettivo_in_print",
-  "esame_obiettivo",
-  "column_break_nsh4b",
   "vod",
   "vos",
   "too",
@@ -270,16 +270,6 @@
    "label": "Anamnesi Ortottica"
   },
   {
-   "fieldname": "esame_obiettivo_section",
-   "fieldtype": "Section Break",
-   "label": "Esame Obiettivo"
-  },
-  {
-   "fieldname": "esame_obiettivo",
-   "fieldtype": "Small Text",
-   "label": "Esame Clinico"
-  },
-  {
    "fieldname": "referti_esami_section",
    "fieldtype": "Section Break",
    "label": "Referti Esami"
@@ -348,8 +338,7 @@
   },
   {
    "fieldname": "column_break_x38ri",
-   "fieldtype": "Column Break",
-   "label": " "
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "boo",
@@ -361,11 +350,6 @@
    "fieldtype": "Select",
    "label": "FOO",
    "options": "\nNella norma per l'et\u00e0\nNon segni di retinopatia diabetica\nDegenerazione maculare\nDistacco posteriore del vitreo\nPapille con aumentata escovazione\nPuker maculare"
-  },
-  {
-   "fieldname": "column_break_nsh4b",
-   "fieldtype": "Column Break",
-   "label": "Esame Obiettivo"
   },
   {
    "fieldname": "terapia_section",
@@ -488,14 +472,6 @@
   },
   {
    "default": "0",
-   "fieldname": "es_obiettivo_in_print",
-   "fieldtype": "Check",
-   "label": "In print",
-   "print_hide": 1,
-   "report_hide": 1
-  },
-  {
-   "default": "0",
    "fieldname": "ref_esami_in_print",
    "fieldtype": "Check",
    "label": "In print",
@@ -525,11 +501,34 @@
    "label": "In print",
    "print_hide": 1,
    "report_hide": 1
+  },
+  {
+   "fieldname": "esame_clinico",
+   "fieldtype": "Small Text",
+   "label": "Esame Clinico"
+  },
+  {
+   "fieldname": "esame_clinico_section",
+   "fieldtype": "Section Break",
+   "label": "Esame Clinico"
+  },
+  {
+   "default": "0",
+   "fieldname": "es_clinico_in_print",
+   "fieldtype": "Check",
+   "label": "In print",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "esame_obiettivo_section",
+   "fieldtype": "Section Break",
+   "label": "Esame Obiettivo"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-15 16:20:55.987306",
+ "modified": "2024-02-16 17:44:27.101810",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Procedura Oculistica",
