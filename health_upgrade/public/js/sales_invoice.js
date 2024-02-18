@@ -132,4 +132,3 @@ frappe.views.CommunicationComposerExt = class extends frappe.views.Communication
 	}
 
 }
-

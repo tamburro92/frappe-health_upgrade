@@ -217,8 +217,8 @@ override_whitelisted_methods = {
 	"healthcare.healthcare.doctype.patient_appointment.patient_appointment.get_availability_data": "health_upgrade.health_upgrade.overrides.patient_appointment.get_availability_data",
     "healthcare.healthcare.doctype.patient_appointment.patient_appointment.get_events": "health_upgrade.health_upgrade.overrides.patient_appointment.get_events",
  	"frappe.desk.page.setup_wizard.setup_wizard.setup_complete": "health_upgrade.health_upgrade.overrides.setup_wizard.setup_complete",
-  	"healthcare.healthcare.doctype.patient_history_settings.validate_medical_record_required": "health_upgrade.health_upgrade.overrides.patient_history_settings.validate_medical_record_required"
-
+  	"healthcare.healthcare.doctype.patient_history_settings.validate_medical_record_required": "health_upgrade.health_upgrade.overrides.patient_history_settings.validate_medical_record_required",
+    "healthcare.healthcare.utils.get_healthcare_services_to_invoice": "health_upgrade.health_upgrade.utils.get_healthcare_services_to_invoice"
  }
 #
 # each overriding function accepts a `data` argument;
