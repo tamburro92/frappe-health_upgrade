@@ -51,6 +51,8 @@
   "column_break_x38ri",
   "boo",
   "foo",
+  "column_break_gcfip",
+  "es_obiettivo_in_print",
   "referti_esami_section",
   "ref_esami_in_print",
   "referti_esami",
@@ -72,6 +74,8 @@
   "richiedo_fag",
   "richiedo_ecografia_oculare",
   "richiedo_topografia_corneale",
+  "column_break_odfhs",
+  "terapia_in_print",
   "diario_section",
   "diario_in_print",
   "diario",
@@ -360,7 +364,7 @@
    "default": "0",
    "fieldname": "consiglio_lenti",
    "fieldtype": "Check",
-   "label": "Consiglio Lenti"
+   "label": "Consiglio lenti"
   },
   {
    "default": "0",
@@ -524,11 +528,35 @@
    "fieldname": "esame_obiettivo_section",
    "fieldtype": "Section Break",
    "label": "Esame Obiettivo"
+  },
+  {
+   "default": "0",
+   "fieldname": "terapia_in_print",
+   "fieldtype": "Check",
+   "label": "In stampa",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "column_break_odfhs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_gcfip",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "es_obiettivo_in_print",
+   "fieldtype": "Check",
+   "label": "In print",
+   "print_hide": 1,
+   "report_hide": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-16 17:44:27.101810",
+ "modified": "2024-02-20 15:42:23.319761",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Procedura Oculistica",
