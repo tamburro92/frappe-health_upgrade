@@ -61,7 +61,9 @@ fixtures = [{
       },
       {
           "dt": "Workspace",
-          "filters": [["name", "in", [ "Home", "Healthcare"]]]
+          "filters": [["name", "in", ["Healthcare"]]]
+        #"filters": [["name", "in", [ "Home", "Healthcare"]]]
+
       },
       {"dt":"Patient History Settings"}
 
