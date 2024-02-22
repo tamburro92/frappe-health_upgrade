@@ -1,6 +1,7 @@
 import frappe
 from healthcare.healthcare.doctype.patient.patient import Patient
 from frappe.contacts.doctype.address.address import get_default_address
+from frappe.contacts.doctype.contact.contact import get_default_contact
 
 class PatientHC(Patient):
 
@@ -12,6 +13,8 @@ class PatientHC(Patient):
 			if id_addr:
 				addr = frappe.get_doc("Address", id_addr)
 				addr.append("links", dict(link_doctype="Customer", link_name=self.customer))
+				if self.get('state_code'):
+					addr.state_code = self.get('state_code')
 				addr.save()
 		
 		if self.flags.is_new_doc and self.customer:
@@ -24,8 +27,12 @@ class PatientHC(Patient):
 				customer_doc.custom_date_of_birth = self.dob
 			if self.get('fiscal_code'):
 				customer_doc.fiscal_code = self.get('fiscal_code')
+			if self.get('tax_id'):
+				customer_doc.tax_id = self.get('tax_id')
 			if self.get('birth_place'):
 				customer_doc.custom_place_of_birth = self.get('birth_place')
+
+				
 			customer_doc.save()
 
 
