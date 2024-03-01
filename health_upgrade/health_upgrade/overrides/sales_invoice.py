@@ -113,7 +113,7 @@ def create_xml(doc):
 	item_meta = frappe.get_meta("Sales Invoice Item")
 
 	invoice_xml = frappe.render_template(
-		"erpnext/regional/italy/e-invoice.xml",
+		"",
 		context={"doc": invoice, "item_meta": item_meta},
 		is_path=True,
 	)
@@ -155,3 +155,34 @@ def get_e_invoice_attachments(invoices):
 			out.append(attachment)
 
 	return out
+
+
+# Overrides in hooks prepare_and_attach_invoice to use item price net
+def prepare_and_attach_invoice(doc, replace=False):
+	progressive_name, progressive_number = get_progressive_name_and_number(doc, replace)
+
+	invoice = prepare_invoice(doc, progressive_number)
+	item_meta = frappe.get_meta("Sales Invoice Item")
+
+	invoice_xml = frappe.render_template(
+		"health_upgrade/health_upgrade/overrides/e-invoice_custom.xml",
+		context={"doc": invoice, "item_meta": item_meta},
+		is_path=True,
+	)
+
+	invoice_xml = invoice_xml.replace("&", "&amp;")
+
+	xml_filename = progressive_name + ".xml"
+
+	_file = frappe.get_doc(
+		{
+			"doctype": "File",
+			"file_name": xml_filename,
+			"attached_to_doctype": doc.doctype,
+			"attached_to_name": doc.name,
+			"is_private": True,
+			"content": invoice_xml,
+		}
+	)
+	_file.save()
+	return _file
