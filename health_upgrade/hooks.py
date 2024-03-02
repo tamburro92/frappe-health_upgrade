@@ -283,6 +283,6 @@ override_doctype_dashboards = {
 # Monkey patching
 # ------------------
 # Imports specific to the patches
-import erpnext.regional.italy.utils
-import health_upgrade.health_upgrade.overrides.sales_invoice
-erpnext.regional.italy.utils.prepare_and_attach_invoice = health_upgrade.health_upgrade.overrides.sales_invoice.prepare_and_attach_invoice
+#import erpnext.regional.italy.utils
+#import health_upgrade.health_upgrade.overrides.sales_invoice
+#erpnext.regional.italy.utils.prepare_and_attach_invoice = health_upgrade.health_upgrade.overrides.sales_invoice.prepare_and_attach_invoice
