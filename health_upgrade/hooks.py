@@ -183,7 +183,12 @@ doc_events = {
 		"on_submit": "health_upgrade.health_upgrade.overrides.patient_history_settings.create_medical_record",
 		"on_cancel": "health_upgrade.health_upgrade.overrides.patient_history_settings.delete_medical_record",
 		"on_update_after_submit": "health_upgrade.health_upgrade.overrides.patient_history_settings.update_medical_record",
-	}
+	},
+    "Sales Invoice": {
+		"on_submit": [
+			"health_upgrade.health_upgrade.overrides.regional.utils.sales_invoice_on_submit",
+		]
+    }
 }
 
 # Scheduled Tasks
@@ -220,7 +225,9 @@ override_whitelisted_methods = {
     "healthcare.healthcare.doctype.patient_appointment.patient_appointment.get_events": "health_upgrade.health_upgrade.overrides.patient_appointment.get_events",
  	"frappe.desk.page.setup_wizard.setup_wizard.setup_complete": "health_upgrade.health_upgrade.overrides.setup_wizard.setup_complete",
   	"healthcare.healthcare.doctype.patient_history_settings.validate_medical_record_required": "health_upgrade.health_upgrade.overrides.patient_history_settings.validate_medical_record_required",
-    "healthcare.healthcare.utils.get_healthcare_services_to_invoice": "health_upgrade.health_upgrade.utils.get_healthcare_services_to_invoice"
+    "healthcare.healthcare.utils.get_healthcare_services_to_invoice": "health_upgrade.health_upgrade.utils.get_healthcare_services_to_invoice",
+    "erpnext.regional.italy.utils.generate_single_invoice": "health_upgrade.health_upgrade.overrides.regional.utils.generate_single_invoice"
+
  }
 #
 # each overriding function accepts a `data` argument;
