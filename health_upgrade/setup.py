@@ -36,7 +36,7 @@ def setup_patient_history_settings():
 
 def get_patient_history_config():
 	return {
-		"Procedura Oculistica": (
+		"Visita oculistica": (
 			"encounter_date",
 			[
 				{"label": "Healthcare Practitioner", "fieldname": "practitioner", "fieldtype": "Link"},

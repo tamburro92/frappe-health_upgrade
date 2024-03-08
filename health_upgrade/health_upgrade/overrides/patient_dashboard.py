@@ -12,7 +12,7 @@ def get_data(data):
 		"transactions": [
 			{
 				"label": _("Appointments and Encounters"),
-				"items": ["Patient Appointment", "Patient Encounter", "Procedura Oculistica", "Prescrizione Lenti"],
+				"items": ["Patient Appointment", "Patient Encounter", "Visita oculistica", "Prescrizione Lenti"],
 			},
 			{"label": _("Lab Tests and Vital Signs"), "items": ["Lab Test", "Sample Collection"]},
 			{

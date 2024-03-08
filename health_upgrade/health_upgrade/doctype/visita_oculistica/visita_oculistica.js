@@ -1,7 +1,7 @@
 // Copyright (c) 2024, Tamburro and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('Procedura Oculistica', {
+frappe.ui.form.on('Visita oculistica', {
 	refresh: function(frm) {
 		if (frm.doc.docstatus === 0 ) {
 			ultime_visite_bt(frm);
@@ -15,7 +15,7 @@ var ultime_visite_bt = function(frm) {
 		function() {
 			erpnext.utils.map_current_doc({
 				method: "health_upgrade.health_upgrade.doctype.procedura_oculistica.procedura_oculistica.make_procedura_oculistica",
-				source_doctype: "Procedura Oculistica",
+				source_doctype: "Visita oculistica",
 				target: frm,
 				setters: {
 					patient: frm.doc.patient || undefined,
@@ -59,7 +59,7 @@ var get_healthcare_services_to_invoice = function(frm) {
 		if(patient && patient!=selected_patient){
 			selected_patient = patient;
 			var method = "";
-			var args = {doctype: "Procedura Oculistica", filters : {patient: patient, docstatus: 1}, filters_field: ["patient", "encounter_date"], txt:""};
+			var args = {doctype: "Visita oculistica", filters : {patient: patient, docstatus: 1}, filters_field: ["patient", "encounter_date"], txt:""};
 			var columns = (["service", "reference_name", "reference_type"]);
 			perform_search(frm, true, $results, $placeholder, method, args, columns);
 		}

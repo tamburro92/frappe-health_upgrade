@@ -11,15 +11,15 @@ class ProceduraOculistica(Document):
 
 @frappe.whitelist()
 def make_procedura_oculistica(source_name, target_doc=None):
-	stc = frappe.get_doc("Procedura Oculistica", source_name)
-	tgt = frappe.new_doc("Procedura Oculistica")
+	stc = frappe.get_doc("Visita oculistica", source_name)
+	tgt = frappe.new_doc("Visita oculistica")
 
 	doclist = get_mapped_doc(
-		"Procedura Oculistica",
+		"Visita oculistica",
 		source_name,
 		{
-			"Procedura Oculistica": {
-				"doctype": "Procedura Oculistica",
+			"Visita oculistica": {
+				"doctype": "Visita oculistica",
 			}
 		},
 		target_doc
@@ -38,7 +38,7 @@ def make_procedura_from_appointment(source_name, target_doc=None):
 		source_name,
 				{
 			"Patient Appointment": {
-				"doctype": "Procedura Oculistica",
+				"doctype": "Visita oculistica",
 				"field_map": [
 					["appointment", "name"],
 					["patient", "patient"],

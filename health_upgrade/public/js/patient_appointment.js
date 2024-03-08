@@ -51,7 +51,7 @@ frappe.ui.form.on("Patient Appointment", {
 					});
 				}, __('Create'));
 
-				frm.add_custom_button(__('Procedura oculistica'), function() {
+				frm.add_custom_button(__('Visita oculistica'), function() {
 					frappe.model.open_mapped_doc({
 						method: 'health_upgrade.health_upgrade.doctype.procedura_oculistica.procedura_oculistica.make_procedura_from_appointment',
 						frm: frm,

@@ -293,7 +293,7 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Procedura Oculistica",
+   "options": "Visita oculistica",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
@@ -559,7 +559,7 @@
  "modified": "2024-02-20 15:42:23.319761",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
- "name": "Procedura Oculistica",
+ "name": "Visita oculistica",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
