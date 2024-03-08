@@ -5,13 +5,21 @@ from frappe import _
 
 def setup_health_upgrade():
 
-	#create_custom_records()
+	create_custom_records()
 	frappe.clear_cache()
 
 
 def create_custom_records():
 	setup_patient_history_settings()
+	setup_healthcare_settings()
 
+
+def setup_healthcare_settings():
+	settings = frappe.get_single("Healthcare Settings")
+	settings.patient_name_by = "Naming Series"
+	settings.link_customer_to_patient = 1
+
+	settings.save()
 
 def setup_patient_history_settings():
 	import json

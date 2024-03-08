@@ -48,7 +48,7 @@ fixtures = [{
           "filters": [["name", "in", [ "Template Fattura Medico", "Template Fattura Azienda",
                                       "Template Prescrizione Lenti", "Template Procedura Oculistica"]]]
       },
-      {"dt": "Healthcare Settings"},
+      #{"dt": "Healthcare Settings"},
       {"dt": "Print Settings"},
       {"dt": "Translation"},
       {
@@ -65,7 +65,7 @@ fixtures = [{
         #"filters": [["name", "in", [ "Home", "Healthcare"]]]
 
       },
-      {"dt":"Patient History Settings"}
+      #{"dt":"Patient History Settings"}
 
 ]
 
