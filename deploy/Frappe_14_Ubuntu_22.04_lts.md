@@ -127,7 +127,7 @@ https://discuss.frappe.io/t/print-pdf-header-footer-not-showing-letterhead/85030
 ### Initilize the frappe bench & install frappe latest version 
 	bench init --frappe-branch version-14 frappe-14
 	bench new-site [site]
-	bench --site [site-name]  setup add-domain [domain-name]
+	bench setup add-domain --site [site-name]  [domain-name]
 	bench use [site]
 
 ### Download Apps from repo

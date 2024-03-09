@@ -6,8 +6,8 @@ from healthcare.setup import before_uninstall as remove_customizations
 def before_uninstall():
 	try:
 		print("Removing customizations created by Frappe Health...")
+		#do 2time: bug?
 		remove_patient_history_settings()
-		#do 2time
 		remove_patient_history_settings()
 
 	except Exception as e:

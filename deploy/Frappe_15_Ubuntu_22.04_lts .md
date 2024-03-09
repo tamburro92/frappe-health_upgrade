@@ -128,7 +128,7 @@ https://discuss.frappe.io/t/print-pdf-header-footer-not-showing-letterhead/85030
 	bench init frappe-15 --frappe-branch version-15 --python python3.11
 
 	bench new-site [site]
-	bench --site [site-name]  setup add-domain [domain-name]
+	bench setup add-domain --site [site-name]  [domain-name]
 	bench use [site]
 
 ### Download Apps from repo
