@@ -52,7 +52,7 @@ def get_patient_history_config():
 				{"label": "Diario", "fieldname": "diario", "fieldtype": "Small Text"},
 			],
 		),
-		"Prescrizione Lenti": (
+		"Prescrizione lenti": (
 			"encounter_date",
 			[
 				{"label": "Healthcare Practitioner", "fieldname": "practitioner", "fieldtype": "Link"},

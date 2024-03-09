@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestProceduraOculistica(FrappeTestCase):
+class TestVisitaoculistica(FrappeTestCase):
 	pass

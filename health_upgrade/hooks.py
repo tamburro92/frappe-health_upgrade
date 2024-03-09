@@ -46,7 +46,7 @@ fixtures = [{
       {
           "dt": "Print Format",
           "filters": [["name", "in", [ "Template Fattura Medico", "Template Fattura Azienda",
-                                      "Template Prescrizione Lenti", "Template Visita oculistica"]]]
+                                      "Template Prescrizione lenti", "Template Visita oculistica"]]]
       },
       #{"dt": "Healthcare Settings"},
       {"dt": "Print Settings"},
@@ -126,7 +126,7 @@ after_install = "health_upgrade.setup.setup_health_upgrade"
 # Uninstallation
 # ------------
 
-# before_uninstall = "health_upgrade.uninstall.before_uninstall"
+before_uninstall = "health_upgrade.uninstall.before_uninstall"
 # after_uninstall = "health_upgrade.uninstall.after_uninstall"
 
 # Integration Setup

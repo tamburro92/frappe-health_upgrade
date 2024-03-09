@@ -5,12 +5,19 @@ import frappe
 from frappe.model.document import Document
 from frappe.model.mapper import get_mapped_doc
 from frappe.utils import getdate, nowtime
+from frappe import _
 
-class ProceduraOculistica(Document):
-	pass
+class Visitaoculistica(Document):
+	def validate(self):
+		self.set_title()
+
+	def set_title(self):
+		self.title = _("{0} with {1}").format(
+			self.patient_name or self.patient, self.practitioner_name or self.practitioner
+		)[:100]
 
 @frappe.whitelist()
-def make_procedura_oculistica(source_name, target_doc=None):
+def make_visita_oculistica(source_name, target_doc=None):
 	stc = frappe.get_doc("Visita oculistica", source_name)
 	tgt = frappe.new_doc("Visita oculistica")
 

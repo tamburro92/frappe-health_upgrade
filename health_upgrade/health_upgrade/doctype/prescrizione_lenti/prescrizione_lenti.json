@@ -394,7 +394,7 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Prescrizione Lenti",
+   "options": "Prescrizione lenti",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
@@ -508,7 +508,7 @@
  "modified": "2024-02-14 17:01:50.842676",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
- "name": "Prescrizione Lenti",
+ "name": "Prescrizione lenti",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
