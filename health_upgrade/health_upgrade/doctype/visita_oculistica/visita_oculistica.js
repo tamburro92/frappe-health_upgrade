@@ -2,6 +2,9 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Visita oculistica', {
+	setup: function(frm) {
+		style_components(frm)
+	},
 	refresh: function(frm) {
 		if (frm.doc.docstatus === 0 ) {
 			ultime_visite_bt(frm);
@@ -121,6 +124,31 @@ var ultime_visite_bt = function(frm) {
 				columns: ["name", "patient", "encounter_date"],
 			})
 		}, __("Get Items From"));
+}
+
+var style_components = function(frm){
+
+	// wrap a card around FOO
+	let divFoo = $('div[data-fieldname="foo"]').parent()
+	divFoo.wrap("<div class='card'><div class='card-body'></div></div>" );
+
+	// dispose to column sx,dx flag
+	let dxsxFoo = $('div[data-fieldname="sx_foo"]').add($('div[data-fieldname="dx_foo"]'))
+	dxsxFoo.wrapAll('<div class="row"></div>')
+
+	let sxFoo = $('div[data-fieldname="sx_foo"]')
+	let dxFoo = $('div[data-fieldname="dx_foo"]')
+	dxFoo.wrap('<div class="col-sm-4"> </div>')
+	sxFoo.wrap('<div class="col-sm-4"> </div>')
+
+
+
+
+
+
+
+
+
 }
 /*
 var get_healthcare_services_to_invoice = function(frm) {

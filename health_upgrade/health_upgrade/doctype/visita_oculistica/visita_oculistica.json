@@ -48,9 +48,12 @@
   "vod",
   "vos",
   "too",
-  "column_break_x38ri",
   "boo",
+  "column_break_x38ri",
   "foo",
+  "foo_text",
+  "sx_foo",
+  "dx_foo",
   "column_break_gcfip",
   "es_obiettivo_in_print",
   "referti_esami_section",
@@ -552,11 +555,28 @@
    "label": "In print",
    "print_hide": 1,
    "report_hide": 1
+  },
+  {
+   "fieldname": "foo_text",
+   "fieldtype": "Data",
+   "label": "FOO (testo)"
+  },
+  {
+   "default": "0",
+   "fieldname": "sx_foo",
+   "fieldtype": "Check",
+   "label": "SX"
+  },
+  {
+   "default": "0",
+   "fieldname": "dx_foo",
+   "fieldtype": "Check",
+   "label": "DX"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-02-20 15:42:23.319761",
+ "modified": "2024-03-26 10:43:48.898139",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Visita oculistica",
