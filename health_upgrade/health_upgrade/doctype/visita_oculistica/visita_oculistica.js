@@ -9,7 +9,6 @@ frappe.ui.form.on('Visita oculistica', {
 		if (frm.doc.docstatus === 0 ) {
 			ultime_visite_bt(frm);
 		}
-
 	},
 	appointment: function(frm) {
 		frm.events.set_appointment_fields(frm);

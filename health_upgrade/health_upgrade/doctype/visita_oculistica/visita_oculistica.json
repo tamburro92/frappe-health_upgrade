@@ -45,10 +45,7 @@
   "es_clinico_in_print",
   "esame_clinico",
   "esame_obiettivo_section",
-  "vod",
-  "vos",
-  "too",
-  "boo",
+  "vod_vos_too_boo",
   "column_break_x38ri",
   "foo",
   "foo_text",
@@ -329,28 +326,8 @@
    "label": "Diario"
   },
   {
-   "fieldname": "vod",
-   "fieldtype": "Data",
-   "label": "VOD"
-  },
-  {
-   "fieldname": "vos",
-   "fieldtype": "Data",
-   "label": "VOS"
-  },
-  {
-   "fieldname": "too",
-   "fieldtype": "Data",
-   "label": "TOO"
-  },
-  {
    "fieldname": "column_break_x38ri",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "boo",
-   "fieldtype": "Data",
-   "label": "BOO"
   },
   {
    "fieldname": "foo",
@@ -572,11 +549,16 @@
    "fieldname": "dx_foo",
    "fieldtype": "Check",
    "label": "DX"
+  },
+  {
+   "default": "VOD: \nVOS: \nTOO: \nBOO: ",
+   "fieldname": "vod_vos_too_boo",
+   "fieldtype": "Small Text"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-26 10:43:48.898139",
+ "modified": "2024-04-04 15:51:38.036980",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Visita oculistica",
