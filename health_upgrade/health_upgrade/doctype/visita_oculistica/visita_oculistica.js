@@ -81,6 +81,22 @@ frappe.ui.form.on('Visita oculistica', {
 						'inpatient_status': data.message.inpatient_status
 					};
 					frm.set_value(values);
+
+					if(data.message.customer){
+						frappe.call({
+							method: 'health_upgrade.health_upgrade.overrides.customer.get_default_address_and_contact_data',
+							args: {
+								doctype: 'Customer',
+								name: data.message.customer
+							},
+							callback: function(data) {
+								if(data.message.address){
+									let address = (data.message.address.address_line1 + ' '|| '') + (data.message.address.pincode + ' ' || '') + (data.message.address.city + ' '|| '') +  (data.message.address.state_code || '')
+									frm.set_value('address', address)
+								}
+							}
+						});
+					}
 				}
 			});
 		} else {

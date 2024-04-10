@@ -20,6 +20,7 @@
   "patient_age",
   "inpatient_record",
   "inpatient_status",
+  "address",
   "column_break_6",
   "company",
   "encounter_date",
@@ -38,9 +39,6 @@
   "amnesi_oculare_section",
   "an_oculare_in_print",
   "amnesi_oculare",
-  "amnesi_ortottica_section",
-  "an_ortottica_in_print",
-  "amnesi_ortottica",
   "esame_clinico_section",
   "es_clinico_in_print",
   "esame_clinico",
@@ -48,7 +46,6 @@
   "vod_vos_too_boo",
   "column_break_x38ri",
   "foo",
-  "foo_text",
   "sx_foo",
   "dx_foo",
   "column_break_gcfip",
@@ -66,6 +63,12 @@
   "consiglio_trattamento_di_barrage_laser",
   "consiglio_copsulotomia_yag_laser",
   "consiglio_iridotomia_yag_laser",
+  "consiglio_os_column",
+  "consiglio_lenti_os",
+  "consiglio_intervento_di_cataratta_os",
+  "consiglio_trattamento_di_barrage_laser_os",
+  "consiglio_copsulotomia_yag_laser_os",
+  "consiglio_iridotomia_yag_laser_os",
   "richiedo_column",
   "richiedo_campo_visivo",
   "richiedo_oct_maculare",
@@ -264,16 +267,6 @@
    "label": "Anamnesi Oculare"
   },
   {
-   "fieldname": "amnesi_ortottica_section",
-   "fieldtype": "Section Break",
-   "label": "Anamnesi Ortottica"
-  },
-  {
-   "fieldname": "amnesi_ortottica",
-   "fieldtype": "Small Text",
-   "label": "Anamnesi Ortottica"
-  },
-  {
    "fieldname": "referti_esami_section",
    "fieldtype": "Section Break",
    "label": "Referti Esami"
@@ -366,7 +359,7 @@
   {
    "fieldname": "consiglio_column",
    "fieldtype": "Column Break",
-   "label": "Consiglio"
+   "label": "Consiglio OD"
   },
   {
    "default": "0",
@@ -441,14 +434,6 @@
   {
    "default": "0",
    "fieldname": "an_oculare_in_print",
-   "fieldtype": "Check",
-   "label": "In print",
-   "print_hide": 1,
-   "report_hide": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "an_ortottica_in_print",
    "fieldtype": "Check",
    "label": "In print",
    "print_hide": 1,
@@ -534,11 +519,6 @@
    "report_hide": 1
   },
   {
-   "fieldname": "foo_text",
-   "fieldtype": "Data",
-   "label": "FOO (testo)"
-  },
-  {
    "default": "0",
    "fieldname": "sx_foo",
    "fieldtype": "Check",
@@ -551,14 +531,55 @@
    "label": "DX"
   },
   {
-   "default": "VOD: \nVOS: \nTOO: \nBOO: ",
+   "default": "VOD: \nVOS: \nTOO: \nBOO: \nFOO: ",
    "fieldname": "vod_vos_too_boo",
    "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "consiglio_os_column",
+   "fieldtype": "Column Break",
+   "label": "Consiglio OS"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_lenti_os",
+   "fieldtype": "Check",
+   "label": "Consiglio lenti"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_intervento_di_cataratta_os",
+   "fieldtype": "Check",
+   "label": "Consiglio intervento di cataratta"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_trattamento_di_barrage_laser_os",
+   "fieldtype": "Check",
+   "label": "Consiglio trattamento di barrage laser"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_copsulotomia_yag_laser_os",
+   "fieldtype": "Check",
+   "label": "Consiglio copsulotomia yag laser"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_iridotomia_yag_laser_os",
+   "fieldtype": "Check",
+   "label": "Consiglio iridotomia yag laser"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address",
+   "read_only": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-04-04 15:51:38.036980",
+ "modified": "2024-04-10 17:43:01.423358",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Visita oculistica",

@@ -43,12 +43,8 @@ fixtures = [{
                                       "Patient-invite_user-default"
                                       ]]]
       },
-      {
-          "dt": "Print Format",
-          "filters": [["name", "in", [ "Template Fattura Medico", "Template Fattura Azienda",
-                                      "Template Prescrizione lenti", "Template Visita oculistica"]]]
-      },
-      #{"dt": "Healthcare Settings"},
+      # { "dt": "Print Format", "filters": [["name", "in", [ ]]] },
+      # {"dt": "Healthcare Settings"},
       {"dt": "Print Settings"},
       {"dt": "Translation"},
       {
