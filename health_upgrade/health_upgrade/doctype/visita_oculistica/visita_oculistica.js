@@ -91,8 +91,9 @@ frappe.ui.form.on('Visita oculistica', {
 							},
 							callback: function(data) {
 								if(data.message.address){
-									let address = (data.message.address.address_line1 + ' '|| '') + (data.message.address.pincode + ' ' || '') + (data.message.address.city + ' '|| '') +  (data.message.address.state_code || '')
-									frm.set_value('address', address)
+									let address = [data.message.address.address_line1, data.message.address.city,  data.message.address.state_code, data.message.address.pincode];
+									let addressFilter = address.filter(str => str !== null && str !== undefined && str !== "")
+									frm.set_value('address', addressFilter.join(", "));
 								}
 							}
 						});
