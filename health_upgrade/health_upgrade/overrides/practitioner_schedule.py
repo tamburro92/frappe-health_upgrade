@@ -47,4 +47,5 @@ def delete_all_slots(docname):
 	for tm in doc.get('time_slots'):
 		doc.remove(tm)
 	doc.save(ignore_permissions=True)
+	frappe.db.commit()
 	
