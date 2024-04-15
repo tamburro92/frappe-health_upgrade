@@ -46,7 +46,7 @@ fixtures = [{
       # { "dt": "Print Format", "filters": [["name", "in", [ ]]] },
       # {"dt": "Healthcare Settings"},
       {"dt": "Print Settings"},
-      {"dt": "Translation"},
+      #{"dt": "Translation"},
       {
           "dt": "Letter Head",
           "filters": [["name", "in", [ "Template Medico", "Template Azienda"]]]
