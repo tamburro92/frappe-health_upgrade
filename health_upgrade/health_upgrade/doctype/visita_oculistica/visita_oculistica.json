@@ -43,13 +43,11 @@
   "es_clinico_in_print",
   "esame_clinico",
   "esame_obiettivo_section",
-  "vod_vos_too_boo",
-  "column_break_x38ri",
-  "foo",
-  "sx_foo",
-  "dx_foo",
-  "column_break_gcfip",
   "es_obiettivo_in_print",
+  "vod_vos_too_boo",
+  "foo",
+  "dx_foo",
+  "sx_foo",
   "referti_esami_section",
   "ref_esami_in_print",
   "referti_esami",
@@ -319,10 +317,6 @@
    "label": "Diario"
   },
   {
-   "fieldname": "column_break_x38ri",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "foo",
    "fieldtype": "Select",
    "label": "FOO",
@@ -416,6 +410,7 @@
    "label": "Richiedo ANGIO OCT"
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "interventi_in_print",
    "fieldtype": "Check",
@@ -424,6 +419,7 @@
    "report_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "an_generale_in_print",
    "fieldtype": "Check",
@@ -432,6 +428,7 @@
    "report_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "an_oculare_in_print",
    "fieldtype": "Check",
@@ -440,6 +437,7 @@
    "report_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "ref_esami_in_print",
    "fieldtype": "Check",
@@ -448,6 +446,7 @@
    "report_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "indicazioni_in_print",
    "fieldtype": "Check",
@@ -456,6 +455,7 @@
    "report_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "diario_in_print",
    "fieldtype": "Check",
@@ -464,6 +464,7 @@
    "report_hide": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "note_in_print",
    "fieldtype": "Check",
@@ -482,6 +483,7 @@
    "label": "Esame Clinico"
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "es_clinico_in_print",
    "fieldtype": "Check",
@@ -495,6 +497,7 @@
    "label": "Esame Obiettivo"
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "terapia_in_print",
    "fieldtype": "Check",
@@ -507,10 +510,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_gcfip",
-   "fieldtype": "Column Break"
-  },
-  {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "es_obiettivo_in_print",
    "fieldtype": "Check",
@@ -522,13 +522,13 @@
    "default": "0",
    "fieldname": "sx_foo",
    "fieldtype": "Check",
-   "label": "SX"
+   "label": "OS"
   },
   {
    "default": "0",
    "fieldname": "dx_foo",
    "fieldtype": "Check",
-   "label": "DX"
+   "label": "OD"
   },
   {
    "default": "VOD: \nVOS: \nTOO: \nBOO: \nFOO: ",
@@ -579,7 +579,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-04-10 17:43:01.423358",
+ "modified": "2024-04-15 10:24:52.289039",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Visita oculistica",

@@ -145,17 +145,17 @@ var ultime_visite_bt = function(frm) {
 var style_components = function(frm){
 
 	// wrap a card around FOO
-	let divFoo = $('div[data-fieldname="foo"]').parent()
-	divFoo.wrap("<div class='card'><div class='card-body'></div></div>" );
+	//let divFoo = $('div[data-fieldname="foo"]').parent();
+	//divFoo.wrap("<div class='card'><div class='card-body'></div></div>" );
 
 	// dispose to column sx,dx flag
-	let dxsxFoo = $('div[data-fieldname="sx_foo"]').add($('div[data-fieldname="dx_foo"]'))
-	dxsxFoo.wrapAll('<div class="row"></div>')
+	let dxsxFoo = $('div[data-fieldname="sx_foo"]').add($('div[data-fieldname="dx_foo"]'));
+	dxsxFoo.wrapAll('<div class="row"></div>');
 
-	let sxFoo = $('div[data-fieldname="sx_foo"]')
-	let dxFoo = $('div[data-fieldname="dx_foo"]')
-	dxFoo.wrap('<div class="col-sm-4"> </div>')
-	sxFoo.wrap('<div class="col-sm-4"> </div>')
+	let sxFoo = $('div[data-fieldname="sx_foo"]');
+	let dxFoo = $('div[data-fieldname="dx_foo"]');
+	dxFoo.wrap('<div class="col-sm-3"> </div>');
+	sxFoo.wrap('<div class="col-sm-3"> </div>');
 
 
 
