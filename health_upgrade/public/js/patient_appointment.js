@@ -4,7 +4,8 @@ frappe.ui.form.on("Patient Appointment", {
 		//frm.set_df_property("appointment_type","reqd",0);
 		//frm.set_df_property("appointment_type","hidden",1)
 
-		check_patient_details(frm);	
+		check_patient_details(frm);
+		set_appointment_date_from_calendar(frm);
 	},
     refresh: function(frm){
 		frm.remove_custom_button('Invoice', 'Create');
@@ -261,7 +262,12 @@ function check_patient_details(frm) {
 	
 }
 
-
+function set_appointment_date_from_calendar(frm){
+	if(frm.doc.start && !frm.doc.appointment_date){
+		frm.set_value('appointment_date', frm.doc.start);
+	}
+	
+}
 // override function check_and_set_availability
 check_and_set_availability = function(frm) {
 	
