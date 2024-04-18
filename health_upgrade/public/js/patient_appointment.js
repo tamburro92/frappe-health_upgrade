@@ -9,8 +9,10 @@ frappe.ui.form.on("Patient Appointment", {
 	},
     refresh: function(frm){
 		frm.remove_custom_button('Invoice', 'Create');
-		if(frm.doc.__islocal == 1)
-            return
+		//frm.remove_custom_button('Vital Signs', 'Create');
+
+		if(frm.doc.__islocal)
+            return;
 
 		if (!frm.doc.ref_sales_invoice) {
 				frappe.db.get_single_value("HC Settings", "check_patient_billing_in_appointment").then((value) => {
@@ -159,7 +161,7 @@ var generate_invoice = function(frm){
 	});
 };
 
-function check_patient_availability(frm) {
+var check_patient_availability = function(frm) {
 	
 	let physician = frm.doc.practitioner;
 	let appointment_date = frm.doc.appointment_date || frappe.datetime.get_today();
@@ -229,7 +231,7 @@ function check_patient_availability(frm) {
 };
 
 
-function check_patient_details(frm) {
+var check_patient_details = function(frm) {
 	if (frm.doc.patient){
 		frappe.db.get_single_value("HC Settings", "check_patient_billing_in_appointment").then((value) => {
 			if (value===1) {
@@ -262,12 +264,13 @@ function check_patient_details(frm) {
 	
 }
 
-function set_appointment_date_from_calendar(frm){
+var set_appointment_date_from_calendar = function(frm){
 	if(frm.doc.start && !frm.doc.appointment_date){
 		frm.set_value('appointment_date', frm.doc.start);
 	}
 	
 }
+
 // override function check_and_set_availability
 check_and_set_availability = function(frm) {
 	
