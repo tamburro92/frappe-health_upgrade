@@ -68,10 +68,10 @@ frappe.ui.form.on('Practitioner Schedule', {
 		frm.add_custom_button(__("Delete all Slots"), function(){
 			frappe.confirm(__('Delete all slots?'),
 			    function(){
+					/*
 					frm.clear_table("time_slots");
 					frm.refresh_fields();
-					//frm.save()
-					/*
+					*/
 					frappe.call({
 						method: "health_upgrade.health_upgrade.overrides.practitioner_schedule.delete_all_slots",
 						args: {
@@ -89,7 +89,7 @@ frappe.ui.form.on('Practitioner Schedule', {
 							}
 						}
 					})
-					*/
+					
 			    });
 		});
 	}
