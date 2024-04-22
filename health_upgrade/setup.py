@@ -2,14 +2,13 @@ import frappe
 from erpnext.setup.utils import insert_record
 from frappe import _
 
-
 def setup_health_upgrade():
-
 	create_custom_records()
 	frappe.clear_cache()
 
 
 def create_custom_records():
+	setup_erpnext_settings()
 	setup_patient_history_settings()
 	setup_healthcare_settings()
 
@@ -60,3 +59,44 @@ def get_patient_history_config():
 				],
 		)
 	}
+
+
+def setup_erpnext_settings():
+    lang = 'it'
+
+    doc = frappe.get_doc('Selling Settings')
+    doc.cust_master_name ="Naming Series"
+    doc.save()
+    
+    m_p = {"doctype": "Mode of Payment", "mode_of_payment": "Bancomat", "type": "Bank", "mode_of_payment_code": "MP05-Bonifico"}
+    m_p_doc = frappe.get_doc(m_p)
+    m_p_doc.insert(ignore_if_duplicate = True)
+
+    mode_of_payments =[
+		{"doctype": "Mode of Payment", "mode_of_payment": _("Cheque", lang),"type": "Bank","mode_of_payment_code":"MP02-Assegno",},
+		{"doctype": "Mode of Payment", "mode_of_payment": _("Cash", lang), "type": "Cash", "mode_of_payment_code": "MP01-Contanti"},
+		{"doctype": "Mode of Payment", "mode_of_payment": _("Credit Card", lang), "type": "Bank", "mode_of_payment_code": "MP08-Carta di pagamento"},
+		{"doctype": "Mode of Payment", "mode_of_payment": _("Wire Transfer", lang), "type": "Bank", "mode_of_payment_code": "MP05-Bonifico"},
+		{"doctype": "Mode of Payment", "mode_of_payment": _("Bank Draft", lang), "type": "Bank", "mode_of_payment_code": "MP02-Assegno"},
+    ]
+    
+
+    for m_p in mode_of_payments:
+        try:
+            doc = frappe.get_doc("Mode of Payment", m_p["mode_of_payment"])
+            doc.type = m_p["type"]
+            doc.mode_of_payment_code = m_p["mode_of_payment_code"]
+            doc.save()
+        except frappe.DoesNotExistError as e:
+            pass
+
+
+
+
+    ''' 
+    {"doctype": "Tax Rule","customer_group":"Medico",
+      "company":"DEF_COMPANY", "sales_tax_template":"Italy Tax -V",
+      "shipping_country":"Italy", "tax_type":"Sales", "use_for_shopping_cart":1
+    }
+    '''
+
