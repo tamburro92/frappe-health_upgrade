@@ -4,7 +4,7 @@
  "creation": "2024-04-15 10:15:33.607036",
  "custom_format": 0,
  "default_print_language": "it",
- "disabled": 0,
+ "disabled": 1,
  "doc_type": "Visita oculistica",
  "docstatus": 0,
  "doctype": "Print Format",
