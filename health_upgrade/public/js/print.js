@@ -1,3 +1,4 @@
+/*
 frappe.pages["print"].on_page_load = function (wrapper) {
 	frappe.ui.make_app_page({
 		parent: wrapper,
@@ -62,3 +63,4 @@ frappe.ui.form.PrintViewExt = class extends frappe.ui.form.PrintView {
         return frappe.run_serially(tasks);
     }
 }
+*/

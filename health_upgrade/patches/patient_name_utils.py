@@ -9,6 +9,7 @@ def rename_patients_name():
         customer = frappe.get_doc(doc_type, c)
         new_name = customer.get_customer_name()
         frappe.rename_doc(doc_type,c,new_name)
+        print(f'step {c}')
 
     frappe.db.commit()
 

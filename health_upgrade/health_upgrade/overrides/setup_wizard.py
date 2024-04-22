@@ -15,7 +15,7 @@ def apply_fixtures(args):
     
     doc = frappe.get_doc('Selling Settings')
     doc.cust_master_name ="Naming Series"
-    doc.save()
+    doc.save(ignore_permissions=True)
     
     m_p = {"doctype": "Mode of Payment", "mode_of_payment": "Bancomat", "type": "Bank", "mode_of_payment_code": "MP05-Bonifico"}
     frappe.get_doc(m_p).insert()
