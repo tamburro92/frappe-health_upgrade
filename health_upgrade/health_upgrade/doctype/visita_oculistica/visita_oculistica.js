@@ -6,9 +6,8 @@ frappe.ui.form.on('Visita oculistica', {
 		style_components(frm)
 	},
 	refresh: function(frm) {
-		if (frm.doc.docstatus === 0 ) {
-			ultime_visite_bt(frm);
-		}
+		ultime_visite_btn(frm);
+		crea_prescrizione_lenti_btn(frm);
 	},
 	appointment: function(frm) {
 		frm.events.set_appointment_fields(frm);
@@ -121,7 +120,10 @@ let calculate_age = function(birth) {
 	return `${years} ${__('Years(s)')} ${age.getMonth()} ${__('Month(s)')} ${age.getDate()} ${__('Day(s)')}`;
 };
 
-var ultime_visite_bt = function(frm) {
+var ultime_visite_btn = function(frm) {
+	if (!frm.doc.docstatus)
+		return;
+
 	frm.add_custom_button(__('Ultime Visite'),
 		function() {
 			erpnext.utils.map_current_doc({
@@ -140,6 +142,17 @@ var ultime_visite_bt = function(frm) {
 				columns: ["name", "patient", "encounter_date"],
 			})
 		}, __("Get Items From"));
+}
+
+var crea_prescrizione_lenti_btn = function(frm){
+	if (!frm.doc.docstatus)
+		return;
+	frm.add_custom_button('Prescrizione Lenti', function() {
+		frappe.model.open_mapped_doc({
+			method: 'health_upgrade.health_upgrade.doctype.prescrizione_lenti.prescrizione_lenti.make_prescrizione_from_visita_oculistica',
+			frm: frm,
+		});
+	}, __('Create'));
 }
 
 var style_components = function(frm){

@@ -19,13 +19,15 @@ class Prescrizionelenti(Document):
 
 @frappe.whitelist()
 def make_prescrizioni_lenti(source_name, target_doc=None):
+	stc = frappe.get_doc("Prescrizione lenti", source_name)
+	tgt = frappe.new_doc("Prescrizione lenti")
 
 	doclist = get_mapped_doc(
-		"Prescrizioni Lenti",
+		"Prescrizione lenti",
 		source_name,
 		{
-			"Prescrizioni Lenti": {
-				"doctype": "Prescrizioni Lenti",
+			"Prescrizione lenti": {
+				"doctype": "Prescrizione lenti",
 			}
 		},
 		target_doc
@@ -51,6 +53,31 @@ def make_prescrizione_from_appointment(source_name, target_doc=None):
 					["practitioner", "practitioner"],
 					["start_date", "appointment_date"],
 					["start_time", "appointment_time"],
+					["notes", "notes"],
+					["company", "company"],
+					["invoiced", "invoiced"],
+				],
+			}
+		},
+		target_doc
+	)
+	return doclist
+
+
+@frappe.whitelist()
+def make_prescrizione_from_visita_oculistica(source_name, target_doc=None):
+	doclist = get_mapped_doc(
+		"Visita oculistica",
+		source_name,
+				{
+			"Visita oculistica": {
+				"doctype": "Prescrizione lenti",
+				"field_map": [
+					["appointment", "appointment"],
+					["patient", "patient"],
+					["practitioner", "practitioner"],
+					["appointment_date", "appointment_date"],
+					["appointment_time", "appointment_time"],
 					["notes", "notes"],
 					["company", "company"],
 					["invoiced", "invoiced"],
