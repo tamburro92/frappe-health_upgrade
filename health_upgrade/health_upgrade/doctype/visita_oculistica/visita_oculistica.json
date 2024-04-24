@@ -59,13 +59,13 @@
   "consiglio_lenti",
   "consiglio_intervento_di_cataratta",
   "consiglio_trattamento_di_barrage_laser",
-  "consiglio_copsulotomia_yag_laser",
+  "consiglio_capsulotomia_yag_laser",
   "consiglio_iridotomia_yag_laser",
   "consiglio_os_column",
   "consiglio_lenti_os",
   "consiglio_intervento_di_cataratta_os",
   "consiglio_trattamento_di_barrage_laser_os",
-  "consiglio_copsulotomia_yag_laser_os",
+  "consiglio_capsulotomia_yag_laser_os",
   "consiglio_iridotomia_yag_laser_os",
   "richiedo_column",
   "richiedo_campo_visivo",
@@ -80,6 +80,9 @@
   "diario_section",
   "diario_in_print",
   "diario",
+  "section_break_nujoq",
+  "in_print_informativa_comparsa",
+  "informativa_comparsa",
   "section_break_33",
   "note_in_print",
   "note",
@@ -363,9 +366,9 @@
   },
   {
    "default": "0",
-   "fieldname": "consiglio_copsulotomia_yag_laser",
+   "fieldname": "consiglio_capsulotomia_yag_laser",
    "fieldtype": "Check",
-   "label": "Consiglio copsulotomia yag laser"
+   "label": "Consiglio capsulotomia yag laser"
   },
   {
    "default": "0",
@@ -560,9 +563,9 @@
   },
   {
    "default": "0",
-   "fieldname": "consiglio_copsulotomia_yag_laser_os",
+   "fieldname": "consiglio_capsulotomia_yag_laser_os",
    "fieldtype": "Check",
-   "label": "Consiglio copsulotomia yag laser"
+   "label": "Consiglio capsulotomia yag laser"
   },
   {
    "default": "0",
@@ -575,11 +578,30 @@
    "fieldtype": "Data",
    "label": "Address",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_nujoq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "in_print_informativa_comparsa",
+   "fieldtype": "Check",
+   "label": "In print",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "informativa_comparsa",
+   "fieldtype": "Heading",
+   "label": "In caso di comparsa di macchie scure, lampi di luce o sensazione di tenda si consiglia rivalutazione urgente"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-04-15 10:24:52.289039",
+ "modified": "2024-04-24 17:44:22.460079",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Visita oculistica",

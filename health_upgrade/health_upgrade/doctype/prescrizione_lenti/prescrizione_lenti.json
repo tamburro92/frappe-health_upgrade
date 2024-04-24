@@ -82,9 +82,6 @@
   "trattamento_anti_riflesso",
   "column_break_sloan",
   "fotocromatiche",
-  "section_break_nujoq",
-  "in_print_correzioni_ottenute",
-  "correzioni_ottenute",
   "section_break_33",
   "note",
   "amended_from"
@@ -504,24 +501,6 @@
    "fieldname": "fotocromatiche",
    "fieldtype": "Check",
    "label": "Fotocromatiche"
-  },
-  {
-   "fieldname": "section_break_nujoq",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "correzioni_ottenute",
-   "fieldtype": "Heading",
-   "label": "Correzioni ottenute in base ai dati refrattometrici ed alle indicazioni del paziente nell'esame soggettivo della visita"
-  },
-  {
-   "allow_on_submit": 1,
-   "default": "0",
-   "fieldname": "in_print_correzioni_ottenute",
-   "fieldtype": "Check",
-   "label": "In print",
-   "print_hide": 1,
-   "report_hide": 1
   }
  ],
  "is_submittable": 1,
