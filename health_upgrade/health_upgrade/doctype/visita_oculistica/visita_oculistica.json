@@ -17,6 +17,7 @@
   "patient",
   "patient_name",
   "patient_sex",
+  "dob",
   "patient_age",
   "inpatient_record",
   "inpatient_status",
@@ -597,11 +598,17 @@
    "fieldname": "informativa_comparsa",
    "fieldtype": "Heading",
    "label": "In caso di comparsa di macchie scure, lampi di luce o sensazione di tenda si consiglia rivalutazione urgente"
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Data di nascita",
+   "read_only": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-04-24 17:44:22.460079",
+ "modified": "2024-05-06 11:23:32.421674",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Visita oculistica",

@@ -77,12 +77,16 @@
   "lenti_consigliate_section",
   "progressive",
   "altri_trattamenti",
-  "column_break_pmzjr",
   "office",
+  "column_break_pmzjr",
   "trattamento_anti_riflesso",
-  "column_break_sloan",
   "fotocromatiche",
+  "rallentamento_miopia",
+  "column_break_sloan",
+  "controindicazioni_lenti_conttatto",
+  "lenti_modifica_visus",
   "section_break_33",
+  "note_in_print",
   "note",
   "amended_from"
  ],
@@ -455,6 +459,15 @@
    "fieldtype": "Section Break"
   },
   {
+    "allow_on_submit": 1,
+    "default": "0",
+    "fieldname": "note_in_print",
+    "fieldtype": "Check",
+    "label": "In print",
+    "print_hide": 1,
+    "report_hide": 1
+   },
+  {
    "fieldname": "note",
    "fieldtype": "Small Text",
    "label": "Note"
@@ -501,7 +514,26 @@
    "fieldname": "fotocromatiche",
    "fieldtype": "Check",
    "label": "Fotocromatiche"
-  }
+  },
+
+  {
+    "default": "0",
+    "fieldname": "rallentamento_miopia",
+    "fieldtype": "Check",
+    "label": "Lenti per il rallentamento della miopia"
+   },
+   {
+    "default": "0",
+    "fieldname": "controindicazioni_lenti_conttatto",
+    "fieldtype": "Check",
+    "label": "Non controindicazioni all’uso delle lenti a contatto"
+   },
+   {
+    "default": "0",
+    "fieldname": "lenti_modifica_visus",
+    "fieldtype": "Check",
+    "label": "Necessita di nuove lenti per modifica del visus"
+   }
  ],
  "is_submittable": 1,
  "links": [],

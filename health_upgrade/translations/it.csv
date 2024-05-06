@@ -16,3 +16,5 @@ Healthcare Practitioner, Medico,
 "Not allowed, cannot overlap appointment {}", "Errore, gli appuntamenti di {} si sovrappongono",
 Appointment For, Appuntamento per,
 Add Video Conferencing, Aggiungi videoconferenza,
+State/Province, Stato/Provincia
+Date of birth, Data di nascita

@@ -77,35 +77,37 @@ frappe.ui.form.on('Visita oculistica', {
 						'patient_name':data.message.patient_name,
 						'patient_sex': data.message.sex,
 						'inpatient_record': data.message.inpatient_record,
-						'inpatient_status': data.message.inpatient_status
+						'inpatient_status': data.message.inpatient_status,
+						'dob': data.message.dob
 					};
 					frm.set_value(values);
-
-					if(data.message.customer){
-						frappe.call({
-							method: 'health_upgrade.health_upgrade.overrides.customer.get_default_address_and_contact_data',
-							args: {
-								doctype: 'Customer',
-								name: data.message.customer
-							},
-							callback: function(data) {
-								if(data.message.address){
-									let address = [data.message.address.address_line1, data.message.address.city,  data.message.address.state_code, data.message.address.pincode];
-									let addressFilter = address.filter(str => str !== null && str !== undefined && str !== "")
-									frm.set_value('address', addressFilter.join(", "));
-								}
-							}
-						});
+				}
+			});
+			frappe.call({
+				method: 'health_upgrade.health_upgrade.overrides.customer.get_default_address_and_contact_data',
+				args: {
+					doctype: 'Patient',
+					name: frm.doc.patient
+				},
+				callback: function(data) {
+					if(data.message.address){
+						let address = [data.message.address.address_line1, data.message.address.city,  data.message.address.state_code, data.message.address.pincode];
+						let addressFilter = address.filter(str => str !== null && str !== undefined && str !== "")
+						frm.set_value('address', addressFilter.join(", "));
 					}
 				}
 			});
+			
 		} else {
 			let values = {
 				'patient_age': '',
 				'patient_name':'',
 				'patient_sex': '',
 				'inpatient_record': '',
-				'inpatient_status': ''
+				'inpatient_status': '',
+				'address': '',
+				'dob': ''
+
 			};
 			frm.set_value(values);
 		}
