@@ -11,6 +11,10 @@ class Prescrizionelenti(Document):
 	def validate(self):
 		self.set_title()
 
+	def on_update(self):
+		if self.appointment:
+			frappe.db.set_value("Patient Appointment", self.appointment, "status", "Closed")
+
 	def set_title(self):
 		self.title = _("{0} with {1}").format(
 			self.patient_name or self.patient, self.practitioner_name or self.practitioner
