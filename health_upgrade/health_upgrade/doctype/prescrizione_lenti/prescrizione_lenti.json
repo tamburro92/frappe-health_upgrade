@@ -77,18 +77,13 @@
   "lenti_consigliate_section",
   "progressive",
   "altri_trattamenti",
-  "office",
   "column_break_pmzjr",
+  "office",
   "trattamento_anti_riflesso",
-  "fotocromatiche",
-  "rallentamento_miopia",
   "column_break_sloan",
-  "controindicazioni_lenti_conttatto",
-  "lenti_modifica_visus",
+  "fotocromatiche",
   "section_break_33",
-  "note_in_print",
-  "note",
-  "amended_from"
+  "note"
  ],
  "fields": [
   {
@@ -394,16 +389,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Prescrizione lenti",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
    "fieldname": "per_lontano",
    "fieldtype": "Section Break",
    "label": "Per Lontano"
@@ -459,15 +444,6 @@
    "fieldtype": "Section Break"
   },
   {
-    "allow_on_submit": 1,
-    "default": "0",
-    "fieldname": "note_in_print",
-    "fieldtype": "Check",
-    "label": "In print",
-    "print_hide": 1,
-    "report_hide": 1
-   },
-  {
    "fieldname": "note",
    "fieldtype": "Small Text",
    "label": "Note"
@@ -514,30 +490,10 @@
    "fieldname": "fotocromatiche",
    "fieldtype": "Check",
    "label": "Fotocromatiche"
-  },
-
-  {
-    "default": "0",
-    "fieldname": "rallentamento_miopia",
-    "fieldtype": "Check",
-    "label": "Lenti per il rallentamento della miopia"
-   },
-   {
-    "default": "0",
-    "fieldname": "controindicazioni_lenti_conttatto",
-    "fieldtype": "Check",
-    "label": "Non controindicazioni all’uso delle lenti a contatto"
-   },
-   {
-    "default": "0",
-    "fieldname": "lenti_modifica_visus",
-    "fieldtype": "Check",
-    "label": "Necessita di nuove lenti per modifica del visus"
-   }
+  }
  ],
- "is_submittable": 1,
  "links": [],
- "modified": "2024-04-24 16:49:40.553176",
+ "modified": "2024-05-08 11:31:17.958270",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Prescrizione lenti",
@@ -545,8 +501,6 @@
  "owner": "Administrator",
  "permissions": [
   {
-   "amend": 1,
-   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -556,7 +510,6 @@
    "report": 1,
    "role": "Physician",
    "share": 1,
-   "submit": 1,
    "write": 1
   }
  ],

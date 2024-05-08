@@ -17,7 +17,6 @@
   "patient",
   "patient_name",
   "patient_sex",
-  "dob",
   "patient_age",
   "inpatient_record",
   "inpatient_status",
@@ -60,13 +59,13 @@
   "consiglio_lenti",
   "consiglio_intervento_di_cataratta",
   "consiglio_trattamento_di_barrage_laser",
-  "consiglio_capsulotomia_yag_laser",
+  "consiglio_copsulotomia_yag_laser",
   "consiglio_iridotomia_yag_laser",
   "consiglio_os_column",
   "consiglio_lenti_os",
   "consiglio_intervento_di_cataratta_os",
   "consiglio_trattamento_di_barrage_laser_os",
-  "consiglio_capsulotomia_yag_laser_os",
+  "consiglio_copsulotomia_yag_laser_os",
   "consiglio_iridotomia_yag_laser_os",
   "richiedo_column",
   "richiedo_campo_visivo",
@@ -81,13 +80,9 @@
   "diario_section",
   "diario_in_print",
   "diario",
-  "section_break_nujoq",
-  "in_print_informativa_comparsa",
-  "informativa_comparsa",
   "section_break_33",
   "note_in_print",
-  "note",
-  "amended_from"
+  "note"
  ],
  "fields": [
   {
@@ -284,16 +279,6 @@
    "label": "Note"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Visita oculistica",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
    "fieldname": "note",
    "fieldtype": "Small Text",
    "ignore_xss_filter": 1,
@@ -364,12 +349,6 @@
    "fieldname": "consiglio_trattamento_di_barrage_laser",
    "fieldtype": "Check",
    "label": "Consiglio trattamento di barrage laser"
-  },
-  {
-   "default": "0",
-   "fieldname": "consiglio_capsulotomia_yag_laser",
-   "fieldtype": "Check",
-   "label": "Consiglio capsulotomia yag laser"
   },
   {
    "default": "0",
@@ -564,12 +543,6 @@
   },
   {
    "default": "0",
-   "fieldname": "consiglio_capsulotomia_yag_laser_os",
-   "fieldtype": "Check",
-   "label": "Consiglio capsulotomia yag laser"
-  },
-  {
-   "default": "0",
    "fieldname": "consiglio_iridotomia_yag_laser_os",
    "fieldtype": "Check",
    "label": "Consiglio iridotomia yag laser"
@@ -581,34 +554,20 @@
    "read_only": 1
   },
   {
-   "fieldname": "section_break_nujoq",
-   "fieldtype": "Section Break"
-  },
-  {
-   "allow_on_submit": 1,
    "default": "0",
-   "fieldname": "in_print_informativa_comparsa",
+   "fieldname": "consiglio_copsulotomia_yag_laser",
    "fieldtype": "Check",
-   "label": "In print",
-   "print_hide": 1,
-   "report_hide": 1
+   "label": "Consiglio copsulotomia yag laser"
   },
   {
-   "allow_on_submit": 1,
-   "fieldname": "informativa_comparsa",
-   "fieldtype": "Heading",
-   "label": "In caso di comparsa di macchie scure, lampi di luce o sensazione di tenda si consiglia rivalutazione urgente"
-  },
-  {
-   "fieldname": "dob",
-   "fieldtype": "Date",
-   "label": "Data di nascita",
-   "read_only": 1
+   "default": "0",
+   "fieldname": "consiglio_copsulotomia_yag_laser_os",
+   "fieldtype": "Check",
+   "label": "Consiglio copsulotomia yag laser"
   }
  ],
- "is_submittable": 1,
  "links": [],
- "modified": "2024-05-06 11:23:32.421674",
+ "modified": "2024-05-08 11:30:52.110220",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Visita oculistica",
@@ -616,8 +575,6 @@
  "owner": "Administrator",
  "permissions": [
   {
-   "amend": 1,
-   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -627,7 +584,6 @@
    "report": 1,
    "role": "Physician",
    "share": 1,
-   "submit": 1,
    "write": 1
   }
  ],
