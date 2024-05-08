@@ -123,12 +123,13 @@ let calculate_age = function(birth) {
 };
 
 var ultime_visite_btn = function(frm) {
-	if (!frm.doc.docstatus)
+	if (!frm.doc.__islocal)
 		return;
+
 
 	frm.add_custom_button(__('Ultime Visite'),
 		function() {
-			erpnext.utils.map_current_doc({
+			health_upgrade.utils.map_current_doc({
 				method: "health_upgrade.health_upgrade.doctype.visita_oculistica.visita_oculistica.make_visita_oculistica",
 				source_doctype: "Visita oculistica",
 				target: frm,
@@ -137,11 +138,11 @@ var ultime_visite_btn = function(frm) {
 					encounter_date: undefined
 				},
 				get_query_filters: {
-					docstatus: 1,
 					patient: frm.doc.patient
 				},
 				date_field: "encounter_date",
-				columns: ["name", "patient", "encounter_date"],
+				columns:  ["patient", "encounter_date", "vod_vos_too_boo"],
+				size: 'large'
 			})
 		}, __("Get Items From"));
 }

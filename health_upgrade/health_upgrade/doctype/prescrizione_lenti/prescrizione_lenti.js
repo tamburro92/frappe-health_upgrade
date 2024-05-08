@@ -1,8 +1,7 @@
 frappe.ui.form.on('Prescrizione lenti', {
 	refresh: function(frm) {
-		if (frm.doc.docstatus === 0 ) {
-			ultime_visite_bt(frm);
-		}
+		ultime_visite_bt(frm);
+		
 
 	},
 	appointment: function(frm) {
@@ -100,9 +99,12 @@ let calculate_age = function(birth) {
 };
 
 var ultime_visite_bt = function(frm) {
+	if (!frm.doc.__islocal)
+		return;
+
 	frm.add_custom_button(__('Ultime Visite'),
 		function() {
-			erpnext.utils.map_current_doc({
+			health_upgrade.utils.map_current_doc({
 				method: "health_upgrade.health_upgrade.doctype.prescrizione_lenti.prescrizione_lenti.make_prescrizione_lenti",
 				source_doctype: "Prescrizione lenti",
 				target: frm,
@@ -111,11 +113,11 @@ var ultime_visite_bt = function(frm) {
 					encounter_date: undefined
 				},
 				get_query_filters: {
-					docstatus: 1,
 					patient: frm.doc.patient
 				},
 				date_field: "encounter_date",
 				columns: ["name", "patient", "encounter_date"],
+				size: 'large'
 			})
 		}, __("Get Items From"));
 }

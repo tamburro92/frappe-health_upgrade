@@ -22,7 +22,7 @@ class Prescrizionelenti(Document):
 
 
 @frappe.whitelist()
-def make_prescrizioni_lenti(source_name, target_doc=None):
+def make_prescrizione_lenti(source_name, target_doc=None):
 	stc = frappe.get_doc("Prescrizione lenti", source_name)
 	tgt = frappe.new_doc("Prescrizione lenti")
 

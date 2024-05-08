@@ -20,6 +20,8 @@
   "patient_age",
   "inpatient_record",
   "inpatient_status",
+  "visita_oculistica_ref",
+  "sintesi_prescrizione",
   "column_break_6",
   "company",
   "encounter_date",
@@ -490,10 +492,24 @@
    "fieldname": "fotocromatiche",
    "fieldtype": "Check",
    "label": "Fotocromatiche"
+  },
+  {
+   "fetch_from": "visita_oculistica_ref.vod_vos_too_boo",
+   "fieldname": "sintesi_prescrizione",
+   "fieldtype": "Small Text",
+   "is_virtual": 1,
+   "label": "Sintesi prescrizione",
+   "read_only": 1
+  },
+  {
+   "fieldname": "visita_oculistica_ref",
+   "fieldtype": "Link",
+   "label": "Visita oculistica",
+   "options": "Visita oculistica"
   }
  ],
  "links": [],
- "modified": "2024-05-08 11:31:17.958270",
+ "modified": "2024-05-08 18:34:22.333152",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Prescrizione lenti",

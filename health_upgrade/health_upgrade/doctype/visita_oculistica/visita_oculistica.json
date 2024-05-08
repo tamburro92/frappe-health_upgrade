@@ -567,7 +567,7 @@
   }
  ],
  "links": [],
- "modified": "2024-05-08 11:30:52.110220",
+ "modified": "2024-05-08 16:53:30.206310",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Visita oculistica",
@@ -588,7 +588,7 @@
   }
  ],
  "restrict_to_domain": "Healthcare",
- "search_fields": "patient, practitioner, medical_department, encounter_date, encounter_time",
+ "search_fields": "patient, practitioner, medical_department, encounter_date, encounter_time, vod_vos_too_boo",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
