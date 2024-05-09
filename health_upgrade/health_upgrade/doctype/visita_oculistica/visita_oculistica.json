@@ -55,19 +55,20 @@
   "indicazioni_in_print",
   "indicazioni",
   "terapia_section",
-  "consiglio_column",
+  "terapia_in_print",
+  "html_consiglio",
   "consiglio_lenti",
   "consiglio_intervento_di_cataratta",
   "consiglio_trattamento_di_barrage_laser",
   "consiglio_copsulotomia_yag_laser",
   "consiglio_iridotomia_yag_laser",
   "consiglio_os_column",
-  "consiglio_lenti_os",
-  "consiglio_intervento_di_cataratta_os",
-  "consiglio_trattamento_di_barrage_laser_os",
-  "consiglio_copsulotomia_yag_laser_os",
-  "consiglio_iridotomia_yag_laser_os",
+  "html_oo_os_od",
+  "consiglio_od",
+  "consiglio_os",
+  "consiglio_oo",
   "richiedo_column",
+  "html_richiedo",
   "richiedo_campo_visivo",
   "richiedo_oct_maculare",
   "richiedo_oct_rnfl2",
@@ -75,8 +76,6 @@
   "richiedo_fag",
   "richiedo_ecografia_oculare",
   "richiedo_topografia_corneale",
-  "column_break_odfhs",
-  "terapia_in_print",
   "diario_section",
   "diario_in_print",
   "diario",
@@ -330,19 +329,13 @@
   },
   {
    "fieldname": "richiedo_column",
-   "fieldtype": "Column Break",
-   "label": "Richiedo"
+   "fieldtype": "Column Break"
   },
   {
    "default": "0",
    "fieldname": "richiedo_campo_visivo",
    "fieldtype": "Check",
    "label": "Richiedo campo visivo"
-  },
-  {
-   "fieldname": "consiglio_column",
-   "fieldtype": "Column Break",
-   "label": "Consiglio OD"
   },
   {
    "default": "0",
@@ -489,10 +482,6 @@
    "report_hide": 1
   },
   {
-   "fieldname": "column_break_odfhs",
-   "fieldtype": "Column Break"
-  },
-  {
    "allow_on_submit": 1,
    "default": "0",
    "fieldname": "es_obiettivo_in_print",
@@ -520,32 +509,7 @@
   },
   {
    "fieldname": "consiglio_os_column",
-   "fieldtype": "Column Break",
-   "label": "Consiglio OS"
-  },
-  {
-   "default": "0",
-   "fieldname": "consiglio_lenti_os",
-   "fieldtype": "Check",
-   "label": "Consiglio lenti"
-  },
-  {
-   "default": "0",
-   "fieldname": "consiglio_intervento_di_cataratta_os",
-   "fieldtype": "Check",
-   "label": "Consiglio intervento di cataratta"
-  },
-  {
-   "default": "0",
-   "fieldname": "consiglio_trattamento_di_barrage_laser_os",
-   "fieldtype": "Check",
-   "label": "Consiglio trattamento di barrage laser"
-  },
-  {
-   "default": "0",
-   "fieldname": "consiglio_iridotomia_yag_laser_os",
-   "fieldtype": "Check",
-   "label": "Consiglio iridotomia yag laser"
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "address",
@@ -561,13 +525,40 @@
   },
   {
    "default": "0",
-   "fieldname": "consiglio_copsulotomia_yag_laser_os",
+   "fieldname": "consiglio_od",
    "fieldtype": "Check",
-   "label": "Consiglio copsulotomia yag laser"
+   "label": "OD"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_os",
+   "fieldtype": "Check",
+   "label": "OS"
+  },
+  {
+   "default": "0",
+   "fieldname": "consiglio_oo",
+   "fieldtype": "Check",
+   "label": "OO"
+  },
+  {
+   "fieldname": "html_consiglio",
+   "fieldtype": "HTML",
+   "options": "<label class=\"control-label\">Consiglio</label>"
+  },
+  {
+   "fieldname": "html_oo_os_od",
+   "fieldtype": "HTML",
+   "options": "<div style=\"margin-bottom: 60px;\"></div>\n"
+  },
+  {
+   "fieldname": "html_richiedo",
+   "fieldtype": "HTML",
+   "options": "<div style=\"margin-top: 35px;\">\n<label class=\"control-label\">Richiedo</label>\n</div>\n\n"
   }
  ],
  "links": [],
- "modified": "2024-05-08 16:53:30.206310",
+ "modified": "2024-05-10 00:12:08.396862",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Visita oculistica",
