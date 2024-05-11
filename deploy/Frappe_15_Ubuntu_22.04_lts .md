@@ -147,7 +147,10 @@ https://discuss.frappe.io/t/print-pdf-header-footer-not-showing-letterhead/85030
 
 Use lets-encrypt and add a voice to crontab
 
-	sudo -H bench setup lets-encrypt [site-name] --custom-domain [domain-name]
+	sudo bench setup lets-encrypt [site-name] --custom-domain [domain-name]
+	#or wildcard
+	sudo bench setup wildcard-ssl erpnext.xyz --email test@example.com
+
 	#sudo bench renew-lets-encrypt
 	#sudo apt install certbot python3-certbot-nginx
 
