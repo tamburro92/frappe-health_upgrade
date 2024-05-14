@@ -171,6 +171,7 @@ override_doctype_class = {
 
 doc_events = {
 	"*": {
+        "on_update": "health_upgrade.health_upgrade.overrides.patient_history_settings.update_medical_record",
 		"on_submit": "health_upgrade.health_upgrade.overrides.patient_history_settings.create_medical_record",
 		"on_cancel": "health_upgrade.health_upgrade.overrides.patient_history_settings.delete_medical_record",
 		"on_update_after_submit": "health_upgrade.health_upgrade.overrides.patient_history_settings.update_medical_record",
