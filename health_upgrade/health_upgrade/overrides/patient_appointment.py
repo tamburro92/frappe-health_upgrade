@@ -21,7 +21,21 @@ from erpnext.controllers.accounts_controller import get_default_taxes_and_charge
 from health_upgrade.health_upgrade.utils import get_appointment_billing_item_and_rate
 
 class PatientAppointmentHC(PatientAppointment):
-	pass
+	def validate(self):
+		self.validate_overlaps()
+		self.validate_based_on_appointments_for()
+		self.validate_service_unit()
+		self.set_appointment_datetime()
+		self.validate_customer_created()
+		self.set_status()
+		self.set_title()
+		self.update_event()
+		self.set_postition_in_queue()
+
+	def set_status(self):
+		# skip if status is already Closed
+		if self.status != "Closed":
+			super().set_status()
 
 @frappe.whitelist()
 def get_earliest_available_physician_and_date(hc_procedure):
@@ -282,7 +296,7 @@ def create_sales_invoice(appointment_doc, discount_percentage=0, discount_amount
 			"invoiced": 0,
 			"ref_sales_invoice": sales_invoice.name,
 			"paid_amount": paid_amount,
-			"status": "Completed"
+			"status": "Closed"
 		},
 	)
 	appointment_doc.notify_update()
