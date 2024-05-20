@@ -18,6 +18,7 @@
   "patient_name",
   "patient_sex",
   "patient_age",
+  "dob",
   "inpatient_record",
   "inpatient_status",
   "address",
@@ -555,10 +556,16 @@
    "fieldname": "html_richiedo",
    "fieldtype": "HTML",
    "options": "<div style=\"margin-top: 35px;\">\n<label class=\"control-label\">Richiedo</label>\n</div>\n\n"
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date of birth",
+   "read_only": 1
   }
  ],
  "links": [],
- "modified": "2024-05-10 00:12:08.396862",
+ "modified": "2024-05-20 18:21:25.057585",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Visita oculistica",

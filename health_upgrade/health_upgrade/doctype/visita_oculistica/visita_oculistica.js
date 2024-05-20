@@ -8,6 +8,11 @@ frappe.ui.form.on('Visita oculistica', {
 	refresh: function(frm) {
 		ultime_visite_btn(frm);
 		crea_prescrizione_lenti_btn(frm);
+		
+		// update patient info
+		if(frm.doc.__islocal){
+			frm.trigger('set_patient_info');
+		}
 	},
 	appointment: function(frm) {
 		frm.events.set_appointment_fields(frm);
@@ -46,14 +51,8 @@ frappe.ui.form.on('Visita oculistica', {
 		else {
 			let values = {
 				'patient': '',
-				'patient_name': '',
 				'type': '',
 				'practitioner': '',
-				'invoiced': 0,
-				'patient_sex': '',
-				'patient_age': '',
-				'inpatient_record': '',
-				'inpatient_status': ''
 			};
 			frm.set_value(values);
 			frm.set_df_property('patient', 'read_only', 0);
@@ -148,7 +147,7 @@ var ultime_visite_btn = function(frm) {
 }
 
 var crea_prescrizione_lenti_btn = function(frm){
-	if (!frm.doc.docstatus)
+	if (frm.doc.__islocal)
 		return;
 	frm.add_custom_button('Prescrizione Lenti', function() {
 		frappe.model.open_mapped_doc({

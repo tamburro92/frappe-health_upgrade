@@ -1,8 +1,11 @@
 frappe.ui.form.on('Prescrizione lenti', {
 	refresh: function(frm) {
 		ultime_visite_bt(frm);
-		
 
+		// update patient info
+		if(frm.doc.__islocal){
+			frm.trigger('set_patient_info');
+		}
 	},
 	appointment: function(frm) {
 		frm.events.set_appointment_fields(frm);
