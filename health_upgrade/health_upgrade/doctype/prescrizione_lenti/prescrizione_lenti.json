@@ -87,6 +87,9 @@
   "column_break_sloan",
   "controindicazioni_lenti_conttatto",
   "lenti_modifica_visus",
+  "section_break_nujoq",
+  "in_print_correzioni_ottenute",
+  "correzioni_ottenute",
   "section_break_33",
   "note"
  ],
@@ -527,6 +530,24 @@
     "fieldname": "lenti_modifica_visus",
     "fieldtype": "Check",
     "label": "Necessita di nuove lenti per modifica del visus"
+   },
+   {
+    "fieldname": "section_break_nujoq",
+    "fieldtype": "Section Break"
+   },
+   {
+    "fieldname": "correzioni_ottenute",
+    "fieldtype": "Heading",
+    "label": "Correzioni ottenute in base ai dati refrattometrici ed alle indicazioni del paziente nell'esame soggettivo della visita"
+   },
+   {
+    "allow_on_submit": 1,
+    "default": "0",
+    "fieldname": "in_print_correzioni_ottenute",
+    "fieldtype": "Check",
+    "label": "In print",
+    "print_hide": 1,
+    "report_hide": 1
    }
  ],
  "links": [],
