@@ -91,6 +91,7 @@
   "in_print_correzioni_ottenute",
   "correzioni_ottenute",
   "section_break_33",
+  "note_in_print",
   "note"
  ],
  "fields": [
@@ -451,6 +452,15 @@
    "fieldname": "section_break_xkl0d",
    "fieldtype": "Section Break"
   },
+  {
+    "allow_on_submit": 1,
+    "default": "0",
+    "fieldname": "note_in_print",
+    "fieldtype": "Check",
+    "label": "In print",
+    "print_hide": 1,
+    "report_hide": 1
+   },
   {
    "fieldname": "note",
    "fieldtype": "Small Text",
