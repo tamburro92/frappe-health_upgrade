@@ -80,6 +80,9 @@
   "diario_section",
   "diario_in_print",
   "diario",
+  "section_break_nujoq",
+  "in_print_informativa_comparsa",
+  "informativa_comparsa",
   "section_break_33",
   "note_in_print",
   "note"
@@ -556,6 +559,25 @@
    "fieldname": "html_richiedo",
    "fieldtype": "HTML",
    "options": "<div style=\"margin-top: 35px;\">\n<label class=\"control-label\">Richiedo</label>\n</div>\n\n"
+  },
+  {
+    "fieldname": "section_break_nujoq",
+    "fieldtype": "Section Break"
+   },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "in_print_informativa_comparsa",
+   "fieldtype": "Check",
+   "label": "In print",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "informativa_comparsa",
+   "fieldtype": "Heading",
+   "label": "In caso di comparsa di macchie scure, lampi di luce o sensazione di tenda si consiglia rivalutazione urgente"
   },
   {
    "fieldname": "dob",
