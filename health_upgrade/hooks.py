@@ -188,7 +188,7 @@ doc_events = {
 
 scheduler_events = {
 	"hourly": [
-        "health_upgrade.health_upgrade.doctype.patient_appointment.patient_appointment.send_appointment_reminder_whatsapp"
+        "health_upgrade.health_upgrade.overrides.patient_appointment.send_appointment_reminder_whatsapp"
 	]
 }
 
