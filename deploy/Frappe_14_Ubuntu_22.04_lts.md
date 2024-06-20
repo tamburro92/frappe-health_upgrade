@@ -156,6 +156,7 @@ Use lets-encrypt and add a voice to crontab
 ### Setup production
     
 	sudo bench setup production [user]
+	bench --site all enable-scheduler
 	bench restart
 
 	#bench disable-production
