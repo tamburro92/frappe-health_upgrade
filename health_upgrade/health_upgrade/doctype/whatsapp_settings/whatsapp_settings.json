@@ -1,0 +1,48 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "creation": "2024-06-19 11:16:31.866088",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "phone_number_id",
+  "access_token"
+ ],
+ "fields": [
+  {
+   "fieldname": "phone_number_id",
+   "fieldtype": "Data",
+   "label": "PHONE_NUMBER_ID"
+  },
+  {
+   "fieldname": "access_token",
+   "fieldtype": "Data",
+   "label": "ACCESS_TOKEN"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-06-19 11:16:42.532660",
+ "modified_by": "Administrator",
+ "module": "Health Upgrade",
+ "name": "WhatsApp Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -186,6 +186,12 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
+scheduler_events = {
+	"hourly": [
+        "health_upgrade.health_upgrade.doctype.patient_appointment.patient_appointment.send_appointment_reminder_whatsapp"
+	]
+}
+
 # scheduler_events = {
 #	"all": [
 #		"health_upgrade.tasks.all"

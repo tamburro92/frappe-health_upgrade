@@ -7,8 +7,14 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "main_tab",
   "check_patient_billing_in_appointment",
-  "button_create_invoice_in_appointment"
+  "button_create_invoice_in_appointment",
+  "alerts_tab",
+  "avvisi_whatsapp_pazienti_section",
+  "send_appointment_reminder",
+  "appointment_reminder_msg_wa",
+  "remind_before"
  ],
  "fields": [
   {
@@ -22,12 +28,47 @@
    "fieldname": "button_create_invoice_in_appointment",
    "fieldtype": "Check",
    "label": "Button Create Invoice in appointment"
+  },
+  {
+   "fieldname": "main_tab",
+   "fieldtype": "Tab Break",
+   "label": "Main"
+  },
+  {
+   "fieldname": "alerts_tab",
+   "fieldtype": "Tab Break",
+   "label": "Alerts"
+  },
+  {
+   "fieldname": "avvisi_whatsapp_pazienti_section",
+   "fieldtype": "Section Break",
+   "label": "Promemoria WhatsApp appuntamento"
+  },
+  {
+   "default": "0",
+   "fieldname": "send_appointment_reminder",
+   "fieldtype": "Check",
+   "label": "Appointment Reminder"
+  },
+  {
+   "default": "86400",
+   "fieldname": "remind_before",
+   "fieldtype": "Duration",
+   "label": "Remind Before"
+  },
+  {
+   "default": "Gentile {{doc.patient_name}},\nle ricordiamo l'appuntamento con {{doc.practitioner_name}} alle {{doc.appointment_time}} del {{frappe.format(doc.appointment_date ,'Date')}} presso {{doc.company}}.\n\nGrazie e buona giornata,\nla segreteria.",
+   "fetch_if_empty": 1,
+   "fieldname": "appointment_reminder_msg_wa",
+   "fieldtype": "Small Text",
+   "ignore_xss_filter": 1,
+   "label": "Messaggio WhatsApp"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-01-20 17:18:45.992987",
+ "modified": "2024-06-20 10:16:56.819832",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "HC Settings",

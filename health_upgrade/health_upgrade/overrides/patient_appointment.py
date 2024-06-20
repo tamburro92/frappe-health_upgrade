@@ -9,7 +9,7 @@ import json
 import frappe
 from erpnext.setup.doctype.employee.employee import is_holiday
 from frappe import _
-from frappe.core.doctype.sms_settings.sms_settings import send_sms
+from health_upgrade.health_upgrade.doctype.whatsapp_settings.whatsapp_settings import send_whatsapp_sms
 from frappe.model.document import Document
 from frappe.model.mapper import get_mapped_doc
 from frappe.utils import flt, format_date, get_link_to_form, get_time, getdate
@@ -393,3 +393,40 @@ def create_iniziali(input, skip_first=False):
 		pop_elm = input_arr.pop(1)
 
 	return pop_elm + ''.join([parola[0].upper() + '.' for parola in input_arr])
+
+
+
+def send_appointment_reminder_whatsapp():
+	if frappe.db.get_single_value("HC Settings", "send_appointment_reminder"):
+		remind_before = frappe.db.get_single_value("HC Settings", "remind_before")
+		reminder_dt = datetime.datetime.now() + datetime.timedelta(seconds = int(remind_before))
+
+		appointment_list = frappe.db.get_all(
+			"Patient Appointment",
+			{
+				"appointment_datetime": ["between", (datetime.datetime.now(), reminder_dt)],
+				"reminded": 0,
+				"status": ["!=", "Cancelled"],
+			},
+		)
+
+		for appointment in appointment_list:
+			doc = frappe.get_doc("Patient Appointment", appointment.name)
+			message = frappe.db.get_single_value("HC Settings", "appointment_reminder_msg_wa")
+			send_message(doc, message)
+			frappe.db.set_value("Patient Appointment", doc.name, "reminded", 1)
+
+def send_message(doc, message):
+	patient_mobile = frappe.db.get_value("Patient", doc.patient, "mobile")
+	if patient_mobile:
+		context = {"doc": doc, "alert": doc, "comments": None}
+		if doc.get("_comments"):
+			context["comments"] = json.loads(doc.get("_comments"))
+
+		# jinja to string convertion happens here
+		message = frappe.render_template(message, context)
+		number = [patient_mobile]
+		try:
+			send_whatsapp_sms(number, message)
+		except Exception as e:
+			frappe.msgprint(_("WhatsApp SMS not sent, please check WhatsApp SMS Settings"), alert=True)
