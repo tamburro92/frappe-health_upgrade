@@ -8,6 +8,7 @@ import json
 
 import frappe
 from frappe import _
+from bs4 import BeautifulSoup
 
 
 from healthcare.healthcare.doctype.healthcare_settings.healthcare_settings import (
@@ -176,3 +177,10 @@ def get_procedure_template_billing_details(procedure):
 		practitioner_charge = item_list.get("rate")
 
 	return service_item, practitioner_charge
+
+
+def convert_html_to_text(html):
+ 	
+	bf_html = BeautifulSoup(html)
+
+	return bf_html.get_text()

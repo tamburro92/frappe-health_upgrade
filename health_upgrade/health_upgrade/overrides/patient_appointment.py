@@ -18,7 +18,8 @@ from erpnext.controllers.selling_controller import get_taxes_and_charges
 from frappe.contacts.address_and_contact import (load_address_and_contact)
 from healthcare.healthcare.utils import throw_config_appointment_type_charge, throw_config_practitioner_charge, throw_config_service_item, get_healthcare_service_item, get_practitioner_billing_details
 from erpnext.controllers.accounts_controller import get_default_taxes_and_charges
-from health_upgrade.health_upgrade.utils import get_appointment_billing_item_and_rate
+from health_upgrade.health_upgrade.utils import get_appointment_billing_item_and_rate, convert_html_to_text
+from frappe.utils.html_utils import clean_script_and_style
 
 class PatientAppointmentHC(PatientAppointment):
 	def validate(self):
@@ -306,7 +307,11 @@ def get_appointment_item(appointment_doc, item):
 	details = get_appointment_billing_item_and_rate(appointment_doc)
 	charge = appointment_doc.paid_amount or details.get("practitioner_charge")
 	item.item_code = details.get("service_item")
-	item.description = _("Consulting Charges: {0}").format(appointment_doc.practitioner)
+
+	item_doc = frappe.get_cached_doc("Item", item.item_code)
+	if item_doc.description:
+		item.description = convert_html_to_text(item_doc.description)
+	#item.description = _("Consulting Charges: {0}").format(appointment_doc.practitioner)
 	item.income_account = get_income_account(appointment_doc.practitioner, appointment_doc.company)
 	item.cost_center = frappe.get_cached_value("Company", appointment_doc.company, "cost_center")
 	item.rate = charge
