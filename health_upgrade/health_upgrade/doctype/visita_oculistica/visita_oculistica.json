@@ -56,7 +56,6 @@
   "indicazioni_in_print",
   "indicazioni",
   "terapia_section",
-  "terapia_in_print",
   "html_consiglio",
   "consiglio_lenti",
   "consiglio_intervento_di_cataratta",
@@ -316,8 +315,7 @@
   },
   {
    "fieldname": "terapia_section",
-   "fieldtype": "Section Break",
-   "label": "Terapia"
+   "fieldtype": "Section Break"
   },
   {
    "default": "0",
@@ -479,15 +477,6 @@
   {
    "allow_on_submit": 1,
    "default": "0",
-   "fieldname": "terapia_in_print",
-   "fieldtype": "Check",
-   "label": "In stampa",
-   "print_hide": 1,
-   "report_hide": 1
-  },
-  {
-   "allow_on_submit": 1,
-   "default": "0",
    "fieldname": "es_obiettivo_in_print",
    "fieldtype": "Check",
    "label": "In print",
@@ -558,12 +547,12 @@
   {
    "fieldname": "html_richiedo",
    "fieldtype": "HTML",
-   "options": "<div style=\"margin-top: 35px;\">\n<label class=\"control-label\">Richiedo</label>\n</div>\n\n"
+   "options": "\n<label class=\"control-label\">Richiedo</label>\n\n\n"
   },
   {
-    "fieldname": "section_break_nujoq",
-    "fieldtype": "Section Break"
-   },
+   "fieldname": "section_break_nujoq",
+   "fieldtype": "Section Break"
+  },
   {
    "allow_on_submit": 1,
    "default": "0",
@@ -587,7 +576,7 @@
   }
  ],
  "links": [],
- "modified": "2024-05-20 18:21:25.057585",
+ "modified": "2024-07-01 15:21:24.101536",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Visita oculistica",
