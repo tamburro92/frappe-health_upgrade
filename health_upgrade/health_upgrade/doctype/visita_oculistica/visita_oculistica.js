@@ -8,18 +8,10 @@ frappe.ui.form.on('Visita oculistica', {
 	refresh: function(frm) {
 		ultime_visite_btn(frm);
 		crea_prescrizione_lenti_btn(frm);
-		
-		// update patient info
-		if(frm.doc.__islocal){
-			frm.trigger('set_patient_info');
-		}
+
 	},
 	appointment: function(frm) {
 		frm.events.set_appointment_fields(frm);
-	},
-
-	patient: function(frm) {
-		frm.events.set_patient_info(frm);
 	},
 
 	practitioner: function(frm) {
@@ -57,69 +49,10 @@ frappe.ui.form.on('Visita oculistica', {
 			frm.set_value(values);
 			frm.set_df_property('patient', 'read_only', 0);
 		}
-	},
-
-	set_patient_info: function(frm) {
-		if (frm.doc.patient) {
-			frappe.call({
-				method: 'healthcare.healthcare.doctype.patient.patient.get_patient_detail',
-				args: {
-					patient: frm.doc.patient
-				},
-				callback: function(data) {
-					let age = '';
-					if (data.message.dob) {
-						age = calculate_age(data.message.dob);
-					}
-					let values = {
-						'patient_age': age,
-						'patient_name':data.message.patient_name,
-						'patient_sex': data.message.sex,
-						'inpatient_record': data.message.inpatient_record,
-						'inpatient_status': data.message.inpatient_status,
-						'dob': data.message.dob
-					};
-					frm.set_value(values);
-				}
-			});
-			frappe.call({
-				method: 'health_upgrade.health_upgrade.overrides.customer.get_default_address_and_contact_data',
-				args: {
-					doctype: 'Patient',
-					name: frm.doc.patient
-				},
-				callback: function(data) {
-					if(data.message.address){
-						let address = [data.message.address.address_line1, data.message.address.city,  data.message.address.state_code, data.message.address.pincode];
-						let addressFilter = address.filter(str => str !== null && str !== undefined && str !== "")
-						frm.set_value('address', addressFilter.join(", "));
-					}
-				}
-			});
-			
-		} else {
-			let values = {
-				'patient_age': '',
-				'patient_name':'',
-				'patient_sex': '',
-				'inpatient_record': '',
-				'inpatient_status': '',
-				'address': '',
-				'dob': ''
-
-			};
-			frm.set_value(values);
-		}
 	}
-});
 
-let calculate_age = function(birth) {
-	let ageMS = Date.parse(Date()) - Date.parse(birth);
-	let age = new Date();
-	age.setTime(ageMS);
-	let years =  age.getFullYear() - 1970;
-	return `${years} ${__('Years(s)')} ${age.getMonth()} ${__('Month(s)')} ${age.getDate()} ${__('Day(s)')}`;
-};
+	
+});
 
 var ultime_visite_btn = function(frm) {
 	if (!frm.doc.__islocal)
@@ -172,15 +105,8 @@ var style_components = function(frm){
 	dxFoo.wrap('<div class="col-sm-3"> </div>');
 	sxFoo.wrap('<div class="col-sm-3"> </div>');
 
-
-
-
-
-
-
-
-
 }
+
 /*
 var get_healthcare_services_to_invoice = function(frm) {
 	var me = this;
@@ -283,3 +209,7 @@ var set_primary_action= function(frm, dialog, $results, invoice_healthcare_servi
 	});
 };
 */
+
+
+extend_cscript(cur_frm.cscript, new health_upgrade.utils.PatientDocController({ frm: cur_frm }));
+

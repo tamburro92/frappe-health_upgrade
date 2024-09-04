@@ -85,6 +85,7 @@
   "fotocromatiche",
   "rallentamento_miopia",
   "column_break_sloan",
+  "lenti_anti_luce_blu",
   "controindicazioni_lenti_conttatto",
   "lenti_modifica_visus",
   "section_break_nujoq",
@@ -152,6 +153,7 @@
   {
    "fieldname": "patient_sex",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Gender",
    "options": "Gender",
    "read_only": 1
@@ -159,6 +161,7 @@
   {
    "fieldname": "patient_age",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Age",
    "read_only": 1
   },
@@ -453,14 +456,14 @@
    "fieldtype": "Section Break"
   },
   {
-    "allow_on_submit": 1,
-    "default": "0",
-    "fieldname": "note_in_print",
-    "fieldtype": "Check",
-    "label": "In print",
-    "print_hide": 1,
-    "report_hide": 1
-   },
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "note_in_print",
+   "fieldtype": "Check",
+   "label": "In print",
+   "print_hide": 1,
+   "report_hide": 1
+  },
   {
    "fieldname": "note",
    "fieldtype": "Small Text",
@@ -524,44 +527,50 @@
    "options": "Visita oculistica"
   },
   {
-    "default": "0",
-    "fieldname": "rallentamento_miopia",
-    "fieldtype": "Check",
-    "label": "Lenti per il rallentamento della miopia"
-   },
-   {
-    "default": "0",
-    "fieldname": "controindicazioni_lenti_conttatto",
-    "fieldtype": "Check",
-    "label": "Non controindicazioni all’uso delle lenti a contatto"
-   },
-   {
-    "default": "0",
-    "fieldname": "lenti_modifica_visus",
-    "fieldtype": "Check",
-    "label": "Necessita di nuove lenti per modifica del visus"
-   },
-   {
-    "fieldname": "section_break_nujoq",
-    "fieldtype": "Section Break"
-   },
-   {
-    "fieldname": "correzioni_ottenute",
-    "fieldtype": "Heading",
-    "label": "Correzioni ottenute in base ai dati refrattometrici ed alle indicazioni del paziente nell'esame soggettivo della visita"
-   },
-   {
-    "allow_on_submit": 1,
-    "default": "0",
-    "fieldname": "in_print_correzioni_ottenute",
-    "fieldtype": "Check",
-    "label": "In print",
-    "print_hide": 1,
-    "report_hide": 1
-   }
+   "default": "0",
+   "fieldname": "rallentamento_miopia",
+   "fieldtype": "Check",
+   "label": "Lenti per il rallentamento della miopia"
+  },
+  {
+   "default": "0",
+   "fieldname": "controindicazioni_lenti_conttatto",
+   "fieldtype": "Check",
+   "label": "Non controindicazioni all\u2019uso delle lenti a contatto"
+  },
+  {
+   "default": "0",
+   "fieldname": "lenti_modifica_visus",
+   "fieldtype": "Check",
+   "label": "Necessita di nuove lenti per modifica del visus"
+  },
+  {
+   "fieldname": "section_break_nujoq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "correzioni_ottenute",
+   "fieldtype": "Heading",
+   "label": "Correzioni ottenute in base ai dati refrattometrici ed alle indicazioni del paziente nell'esame soggettivo della visita"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "in_print_correzioni_ottenute",
+   "fieldtype": "Check",
+   "label": "In print",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "lenti_anti_luce_blu",
+   "fieldtype": "Check",
+   "label": "Lenti anti luce blu"
+  }
  ],
  "links": [],
- "modified": "2024-05-08 18:34:22.333152",
+ "modified": "2024-09-04 15:17:05.145969",
  "modified_by": "Administrator",
  "module": "Health Upgrade",
  "name": "Prescrizione lenti",

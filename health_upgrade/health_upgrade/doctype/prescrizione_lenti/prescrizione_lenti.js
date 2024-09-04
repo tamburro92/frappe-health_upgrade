@@ -1,18 +1,9 @@
 frappe.ui.form.on('Prescrizione lenti', {
 	refresh: function(frm) {
 		ultime_visite_bt(frm);
-
-		// update patient info
-		if(frm.doc.__islocal){
-			frm.trigger('set_patient_info');
-		}
 	},
 	appointment: function(frm) {
 		frm.events.set_appointment_fields(frm);
-	},
-
-	patient: function(frm) {
-		frm.events.set_patient_info(frm);
 	},
 
 	practitioner: function(frm) {
@@ -56,50 +47,9 @@ frappe.ui.form.on('Prescrizione lenti', {
 			frm.set_value(values);
 			frm.set_df_property('patient', 'read_only', 0);
 		}
-	},
-
-	set_patient_info: function(frm) {
-		if (frm.doc.patient) {
-			frappe.call({
-				method: 'healthcare.healthcare.doctype.patient.patient.get_patient_detail',
-				args: {
-					patient: frm.doc.patient
-				},
-				callback: function(data) {
-					let age = '';
-					if (data.message.dob) {
-						age = calculate_age(data.message.dob);
-					}
-					let values = {
-						'patient_age': age,
-						'patient_name':data.message.patient_name,
-						'patient_sex': data.message.sex,
-						'inpatient_record': data.message.inpatient_record,
-						'inpatient_status': data.message.inpatient_status
-					};
-					frm.set_value(values);
-				}
-			});
-		} else {
-			let values = {
-				'patient_age': '',
-				'patient_name':'',
-				'patient_sex': '',
-				'inpatient_record': '',
-				'inpatient_status': ''
-			};
-			frm.set_value(values);
-		}
 	}
 });
 
-let calculate_age = function(birth) {
-	let ageMS = Date.parse(Date()) - Date.parse(birth);
-	let age = new Date();
-	age.setTime(ageMS);
-	let years =  age.getFullYear() - 1970;
-	return `${years} ${__('Years(s)')} ${age.getMonth()} ${__('Month(s)')} ${age.getDate()} ${__('Day(s)')}`;
-};
 
 var ultime_visite_bt = function(frm) {
 	if (!frm.doc.__islocal)
@@ -124,3 +74,5 @@ var ultime_visite_bt = function(frm) {
 			})
 		}, __("Get Items From"));
 }
+
+extend_cscript(cur_frm.cscript, new health_upgrade.utils.PatientDocController({ frm: cur_frm }));

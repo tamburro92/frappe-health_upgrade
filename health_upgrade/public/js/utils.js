@@ -1,7 +1,7 @@
-//copy erpnext.utils.map_current_doc
-//override get_datatable_columns
 frappe.provide("health_upgrade.utils");
 
+//copy erpnext.utils.map_current_doc
+//override get_datatable_columns
 health_upgrade.utils.map_current_doc = function (opts) {
 	function _map() {
 		return frappe.call({
@@ -96,3 +96,131 @@ health_upgrade.utils.map_current_doc = function (opts) {
 		_map();
 	}
 };
+
+
+health_upgrade.utils.PatientDocController = class PatientDocController extends frappe.ui.form.Controller {
+	constructor(obj) {
+		super(obj);
+		this.patientInfo = {};
+	}
+
+	refresh(){
+		this.storia_paziente_btn()
+		this.frm.script_manager.trigger('set_patient_info');
+	}
+	patient(){
+		this.frm.script_manager.trigger('set_patient_info');
+	}
+	set_patient_info(){
+		let frm = this.frm;
+		var me = this;
+
+		if (frm.doc.patient) {
+			frappe.call({
+				method: 'healthcare.healthcare.doctype.patient.patient.get_patient_detail',
+				args: {
+					patient: frm.doc.patient
+				},
+				callback: function(data) {
+					let age = '';
+					if (data.message.dob) {
+						age = me.calculate_age(data.message.dob);
+					}
+					let values = {
+						'patient_age': age,
+						'patient_name':data.message.patient_name,
+						'patient_sex': data.message.sex,
+						'inpatient_record': data.message.inpatient_record,
+						'inpatient_status': data.message.inpatient_status,
+						'dob': data.message.dob
+					};
+					me.patientInfo = $.extend(me.patientInfo, values);
+					me.add_patient_info(me.patientInfo);
+				}
+			});
+			frappe.call({
+				method: 'health_upgrade.health_upgrade.overrides.customer.get_default_address_and_contact_data',
+				args: {
+					doctype: 'Patient',
+					name: frm.doc.patient
+				},
+				callback: function(data) {
+					if(data.message.address){
+						let address = [data.message.address.address_line1, data.message.address.city,  data.message.address.state_code, data.message.address.pincode];
+						let addressFilter = address.filter(str => str !== null && str !== undefined && str !== "")
+						me.patientInfo = $.extend(me.patientInfo, {'address':addressFilter.join(", ")});
+						me.add_patient_info(me.patientInfo);
+					}
+				}
+			});
+			
+		} else {
+			let values = {
+				'patient_age': '',
+				'patient_name':'',
+				'patient_sex': '',
+				'inpatient_record': '',
+				'inpatient_status': '',
+				'address': '',
+				'dob': ''
+
+			};
+			me.patientInfo = $.extend(me.patientInfo, values);
+			me.add_patient_info(me.patientInfo);
+		}
+	}
+	add_patient_info(values) {
+		this.frm.set_value(values);
+		// update sidebar
+		const keyMap = {
+			'patient_name': 'Nome Paziente',
+			'patient_age': 'Età Paziente',
+			'patient_sex': 'Sesso Paziente',
+			'dob': 'Data di Nascita',
+			'inpatient_record': 'Cartella Clinica',
+			'inpatient_status': 'Stato Paziente',
+			'address': 'Indirizzo'
+		};
+	
+		let listId = 'patient-info-list';
+		if ($('#' + listId).length) {
+			// Se esiste, rimuovi la lista precedente
+			$('#' + listId).remove();
+		}
+	
+		let $ul = $('<ul id="' + listId + '" class="list-unstyled sidebar-menu"></ul>');
+	
+		$.each(keyMap, function(key, readableKey) {
+			let value = values[key];
+			if (value) {
+				if (key === 'dob') {
+					value = moment(value).format('DD-MM-YYYY');
+				}
+				$ul.append('<li class="sidebar-label mb-0"><b>' + readableKey + ':</b></li>');
+				$ul.append('<li class="sidebar-label">' + value + '</li>');
+
+			}
+		});
+	
+		$ul.prependTo('.form-sidebar');
+	}
+
+	calculate_age(birth) {
+	let ageMS = Date.parse(Date()) - Date.parse(birth);
+	let age = new Date();
+	age.setTime(ageMS);
+	let years =  age.getFullYear() - 1970;
+	return `${years} ${__('Years(s)')} ${age.getMonth()} ${__('Month(s)')} ${age.getDate()} ${__('Day(s)')}`;
+	}
+
+	storia_paziente_btn() {
+		var me = this;
+		this.frm.add_custom_button(__('Patient History'), function() {
+			frappe.route_options = { 'patient': me.frm.doc.patient };
+			frappe.set_route('patient_history');
+		}, __('View'));
+		
+	}
+}
+
+
