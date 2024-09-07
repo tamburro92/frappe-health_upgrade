@@ -106,14 +106,17 @@ health_upgrade.utils.PatientDocController = class PatientDocController extends f
 
 	refresh(){
 		this.storia_paziente_btn()
-		this.frm.script_manager.trigger('set_patient_info');
+		this.set_patient_info();
+		//this.frm.script_manager.trigger('set_patient_info');
 	}
 	patient(){
-		this.frm.script_manager.trigger('set_patient_info');
+		this.set_patient_info(true);
+		//this.frm.script_manager.trigger('set_patient_info');
 	}
-	set_patient_info(){
+	set_patient_info(set_doc_fields=false){
 		let frm = this.frm;
 		var me = this;
+		var set_doc_fields = set_doc_fields;
 
 		if (frm.doc.patient) {
 			frappe.call({
@@ -135,7 +138,7 @@ health_upgrade.utils.PatientDocController = class PatientDocController extends f
 						'dob': data.message.dob
 					};
 					me.patientInfo = $.extend(me.patientInfo, values);
-					me.add_patient_info(me.patientInfo);
+					me.add_patient_info(me.patientInfo, set_doc_fields);
 				}
 			});
 			frappe.call({
@@ -149,7 +152,7 @@ health_upgrade.utils.PatientDocController = class PatientDocController extends f
 						let address = [data.message.address.address_line1, data.message.address.city,  data.message.address.state_code, data.message.address.pincode];
 						let addressFilter = address.filter(str => str !== null && str !== undefined && str !== "")
 						me.patientInfo = $.extend(me.patientInfo, {'address':addressFilter.join(", ")});
-						me.add_patient_info(me.patientInfo);
+						me.add_patient_info(me.patientInfo, set_doc_fields);
 					}
 				}
 			});
@@ -166,11 +169,12 @@ health_upgrade.utils.PatientDocController = class PatientDocController extends f
 
 			};
 			me.patientInfo = $.extend(me.patientInfo, values);
-			me.add_patient_info(me.patientInfo);
+			me.add_patient_info(me.patientInfo, set_doc_fields);
 		}
 	}
-	add_patient_info(values) {
-		this.frm.set_value(values);
+	add_patient_info(values, set_doc_fields) {
+		if(set_doc_fields)
+			this.frm.set_value(values);
 		// update sidebar
 		const keyMap = {
 			'patient_name': 'Nome Paziente',
