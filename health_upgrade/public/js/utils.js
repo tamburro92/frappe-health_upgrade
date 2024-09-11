@@ -106,13 +106,13 @@ health_upgrade.utils.PatientDocController = class PatientDocController extends f
 
 	refresh(){
 		this.storia_paziente_btn()
-		this.set_patient_info();
-		//this.frm.script_manager.trigger('set_patient_info');
+		this.set_patient_info(this.frm.doc.__islocal===1);
 	}
+
 	patient(){
 		this.set_patient_info(true);
-		//this.frm.script_manager.trigger('set_patient_info');
 	}
+	
 	set_patient_info(set_doc_fields=false){
 		let frm = this.frm;
 		var me = this;
