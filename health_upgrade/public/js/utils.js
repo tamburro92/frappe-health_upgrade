@@ -118,58 +118,49 @@ health_upgrade.utils.PatientDocController = class PatientDocController extends f
 		var me = this;
 		var set_doc_fields = set_doc_fields;
 
-		if (frm.doc.patient) {
-			frappe.call({
-				method: 'healthcare.healthcare.doctype.patient.patient.get_patient_detail',
-				args: {
-					patient: frm.doc.patient
-				},
-				callback: function(data) {
-					let age = '';
-					if (data.message.dob) {
-						age = me.calculate_age(data.message.dob);
-					}
-					let values = {
-						'patient_age': age,
-						'patient_name':data.message.patient_name,
-						'patient_sex': data.message.sex,
-						'inpatient_record': data.message.inpatient_record,
-						'inpatient_status': data.message.inpatient_status,
-						'dob': data.message.dob
-					};
-					me.patientInfo = $.extend(me.patientInfo, values);
-					me.add_patient_info(me.patientInfo, set_doc_fields);
-				}
-			});
-			frappe.call({
-				method: 'health_upgrade.health_upgrade.overrides.customer.get_default_address_and_contact_data',
-				args: {
-					doctype: 'Patient',
-					name: frm.doc.patient
-				},
-				callback: function(data) {
-					if(data.message.address){
-						let address = [data.message.address.address_line1, data.message.address.city,  data.message.address.state_code, data.message.address.pincode];
-						let addressFilter = address.filter(str => str !== null && str !== undefined && str !== "")
-						me.patientInfo = $.extend(me.patientInfo, {'address':addressFilter.join(", ")});
-						me.add_patient_info(me.patientInfo, set_doc_fields);
-					}
-				}
-			});
-			
-		} else {
-			let values = {
-				'patient_age': '',
-				'patient_name':'',
-				'patient_sex': '',
-				'inpatient_record': '',
-				'inpatient_status': '',
-				'address': '',
-				'dob': ''
+		var valuesCTX = {
+			'patient_age': '',
+			'patient_name':'',
+			'patient_sex': '',
+			'inpatient_record': '',
+			'inpatient_status': '',
+			'address': '',
+			'dob': ''
+		};
 
-			};
-			me.patientInfo = $.extend(me.patientInfo, values);
-			me.add_patient_info(me.patientInfo, set_doc_fields);
+		if (frm.doc.patient) {
+			let promisePatientDetail = frappe.call({
+				method: 'healthcare.healthcare.doctype.patient.patient.get_patient_detail',
+				args: {patient: frm.doc.patient}
+			});
+			let promisePatientAddress = frappe.call({
+				method: 'health_upgrade.health_upgrade.overrides.customer.get_default_address_and_contact_data',
+				args: {doctype: 'Patient',name: frm.doc.patient}
+			});
+
+			Promise.all([promisePatientDetail, promisePatientAddress]).then(([resultDetail, resultAddress]) => {
+				if(resultDetail.message){
+					let data = resultDetail;
+					
+					const age = data.message.dob ? me.calculate_age(data.message.dob) : '';
+					valuesCTX.patient_age = age;
+					valuesCTX.patient_name = data.message.patient_name;
+					valuesCTX.patient_sex = data.message.patient_sex;
+					valuesCTX.inpatient_record = data.message.inpatient_record;
+					valuesCTX.inpatient_status = data.message.inpatient_status;
+					valuesCTX.dob = data.message.dob;
+				}
+				if(resultAddress.message && resultAddress.message.address){
+					let data = resultAddress;
+					let address = [data.message.address.address_line1, data.message.address.city,  data.message.address.state_code, data.message.address.pincode];
+					let addressFilter = address.filter(str => str !== null && str !== undefined && str !== "")
+					
+					valuesCTX.address = addressFilter.join(", ");
+				}
+				me.add_patient_info(valuesCTX, set_doc_fields);
+			});
+		} else {
+			me.add_patient_info(valuesCTX, set_doc_fields);
 		}
 	}
 	add_patient_info(values, set_doc_fields) {
@@ -187,12 +178,8 @@ health_upgrade.utils.PatientDocController = class PatientDocController extends f
 		};
 	
 		let listId = 'patient-info-list';
-		if ($('#' + listId).length) {
-			// Se esiste, rimuovi la lista precedente
-			$('#' + listId).remove();
-		}
 	
-		let $ul = $('<ul id="' + listId + '" class="list-unstyled sidebar-menu"></ul>');
+		let $ul = $('<div class="' + listId + '"><ul class="list-unstyled sidebar-menu"></ul></div>');
 	
 		$.each(keyMap, function(key, readableKey) {
 			let value = values[key];
@@ -205,7 +192,11 @@ health_upgrade.utils.PatientDocController = class PatientDocController extends f
 
 			}
 		});
-	
+		
+		if ($('.' + listId).length) {
+			// Se esiste, rimuovi la lista precedente
+			$('.' + listId).remove();
+		}
 		$ul.prependTo('.form-sidebar');
 	}
 
