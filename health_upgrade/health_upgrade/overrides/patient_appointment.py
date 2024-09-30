@@ -38,6 +38,25 @@ class PatientAppointmentHC(PatientAppointment):
 		if self.status != "Closed":
 			super().set_status()
 
+	# override 	to skip writing event permission event_doc.save(ignore_permissions=True)
+	def update_event(self):
+		if self.event:
+			event_doc = frappe.get_doc("Event", self.event)
+			starts_on = datetime.datetime.combine(
+				getdate(self.appointment_date), get_time(self.appointment_time)
+			)
+			ends_on = starts_on + datetime.timedelta(minutes=flt(self.duration))
+			if (
+				starts_on != event_doc.starts_on
+				or self.add_video_conferencing != event_doc.add_video_conferencing
+			):
+				event_doc.starts_on = starts_on
+				event_doc.ends_on = ends_on
+				event_doc.add_video_conferencing = self.add_video_conferencing
+				event_doc.save(ignore_permissions=True)
+				event_doc.reload()
+				self.google_meet_link = event_doc.google_meet_link
+	
 @frappe.whitelist()
 def get_earliest_available_physician_and_date(hc_procedure):
 	pass
