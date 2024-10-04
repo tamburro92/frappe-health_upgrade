@@ -120,7 +120,7 @@ https://discuss.frappe.io/t/print-pdf-header-footer-not-showing-letterhead/85030
 
 ### Install Frappe
 
-	sudo -H pip3 install frappe-bench
+	pip3 install frappe-bench
 
 ## Configure new Site
 
