@@ -13,8 +13,7 @@ A complete Guide to Install Frappe/ERPNext version 15  in Ubuntu 22.04 LTS
 	sudo apt-get install python3-dev
 	sudo apt-get install python3-setuptools python3-pip
 	sudo apt-get install virtualenv
-	sudo apt install python3.11-venv
-	#sudo apt install python3-venv
+	sudo apt install python3-venv
 
 ### Install MariaDB
 	sudo apt-get install software-properties-common
@@ -120,12 +119,13 @@ https://discuss.frappe.io/t/print-pdf-header-footer-not-showing-letterhead/85030
 
 ### Install Frappe
 
-	pip3 install frappe-bench
+	pip3 install frappe-bench --break-system-packages
+	sudo reboot
 
 ## Configure new Site
 
 ### Initilize the frappe bench & install frappe latest version 
-	bench init frappe-15 --frappe-branch version-15 --python python3.11
+	bench init frappe-15 --frappe-branch version-15
 
 	bench new-site [site]
 	bench setup add-domain --site [site-name]  [domain-name]
