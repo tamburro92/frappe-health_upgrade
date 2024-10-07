@@ -165,6 +165,11 @@ Use lets-encrypt and add a voice to crontab
 ### if js and css file is not loading on login window run the following command
 	sudo usermod -aG [user] www-data
 
+or
+
+	chmod -R o+rx /home/[frappe-user]
+
+
 
 ## Extra
 ### Create swapfile
