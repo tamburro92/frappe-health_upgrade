@@ -12,7 +12,7 @@ from frappe import _
 from health_upgrade.health_upgrade.doctype.whatsapp_settings.whatsapp_settings import send_whatsapp_sms
 from frappe.model.document import Document
 from frappe.model.mapper import get_mapped_doc
-from frappe.utils import flt, format_date, get_link_to_form, get_time, getdate
+from frappe.utils import flt, format_date, get_link_to_form, get_time, getdate, time_diff_in_seconds
 from healthcare.healthcare.doctype.patient_appointment.patient_appointment import PatientAppointment, get_income_account, check_employee_wise_availability, check_fee_validity, get_fee_validity, get_appointment_item, get_receivable_account
 from erpnext.controllers.selling_controller import get_taxes_and_charges
 from frappe.contacts.address_and_contact import (load_address_and_contact)
@@ -407,6 +407,22 @@ def get_events(start, end, filters=None):
 		item.title = item.patient_name + ' ' + create_iniziali(item.practitioner_name)
 
 	return data
+
+@frappe.whitelist()
+def update_event_calendar(args, field_map):
+	"""Updates Event (called via calendar) based on passed `field_map`"""
+	args = frappe._dict(json.loads(args))
+	field_map = frappe._dict(json.loads(field_map))
+	w = frappe.get_doc(args.doctype, args.name)
+
+
+	start_date = getdate(args[field_map.start])
+	start_time = get_time(args[field_map.start])
+	w.set("appointment_date", start_date)
+	w.set("appointment_time", start_time)
+	w.set("duration", int(time_diff_in_seconds(args[field_map.end], args[field_map.start]) / 60))
+
+	w.save()
 
 def create_iniziali(input, skip_first=False):
 	if not input:
